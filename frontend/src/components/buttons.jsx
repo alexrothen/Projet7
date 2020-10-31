@@ -5,10 +5,31 @@ import styled from "styled-components";
 const ButtonWrapper = styled.button`
     border-radius : 5px;
     padding: 7px 16px;
-    font-size: 1em;
-    border : 1px solid #c2c2c2;
-    color : #000;
-    background-color :  #fff;
+    font-size: 1.05em;
+    border : 2px solid #fc3109;
+    outline: none;
+    color : #fc3109;
+    background-color : #fff;
+    width : 100px;
+    margin-right : 10px;
+    font-weight : bold;
+    cursor: pointer;
+    transition : all ease-in-out 180ms;
+    &:hover{
+        color : rgba(252, 49, 9, 0.5);
+        border : 2px solid rgba(252, 49, 9, 0.5);
+    }
+    &:last-of-type{
+        color : #fff;
+        background-color : #fc3109;
+        &:hover{
+        background-color: transparent;
+        color: #fc3109;
+    };
+   
+
+  
+    }
 
 `;
 

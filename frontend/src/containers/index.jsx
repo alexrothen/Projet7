@@ -1,21 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from './header';
+import BackgroundImg from '../assets/icon.png'
 
 const PageContainer = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #f5f5f5;
+  padding : 0;
+  background: no-repeat center/50% url(${BackgroundImg})
+`;
+
+const BackgroundGrey = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(245, 245, 245, 0.7);
 `;
 
 
 const Homepage = (props) =>{
   return (
     <PageContainer>
-      <Header/>
-
+     <BackgroundGrey>
+       <Header/>
+      </BackgroundGrey> 
     </PageContainer>
   )
 }

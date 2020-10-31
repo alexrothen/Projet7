@@ -11,21 +11,29 @@ const HeaderContainer = styled.div`
     width : 100%;
     padding : 0 10px;
     background-color: #fff;
+    justify-content : space-between;
     
 
 `;
 
 const GroupomaniaLogo = styled.img`
     height : 60%;
-`
+`;
 
+const ButtonWrapper = styled.div`
+    display: flex;
+    align-items : center;
+    padding-right : 20px;
+`;
 
 const Header = (props) =>{
     return (
     <HeaderContainer>
         <GroupomaniaLogo src={GroupomaniaLogoUrl}/>
-        <Button>log in</Button>
-        <Button>log in</Button>
+        <ButtonWrapper>
+            <Button>LOG IN</Button>
+            <Button>SIGN UP</Button>
+        </ButtonWrapper>
     </HeaderContainer>
     );
 };
