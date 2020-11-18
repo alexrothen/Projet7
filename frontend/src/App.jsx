@@ -1,8 +1,25 @@
 import React from 'react';
-import Homepage from './containers'
+import styled from 'styled-components';
+import { Margin } from './components/Margin';
+import { LoginScreen } from './containers/LoginScreen/LoginScreen';
+
+const Wrapper = styled.div`
+    display :flex;
+    margin : auto;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+
+`;
+
 
 export function App(){
-    return <Homepage />
-
+    return (
+        <>
+        <Margin direction="vertical" margin="10vh"/>
+         <LoginScreen /> 
+         </>   
+           )
+   
 };
 

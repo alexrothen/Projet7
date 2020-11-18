@@ -1,13 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import Header from './header';
-import BackgroundImg from '../assets/icon.png'
+import BackgroundImg from '../assets/icon.png';
+
 
 const PageContainer = styled.div`
   width: 100%;
   height: 100vh;
   padding : 0;
-  background: no-repeat center/50% url(${BackgroundImg})
+  background: no-repeat center/40% url(${BackgroundImg})
 `;
 
 const BackgroundGrey = styled.div`
@@ -26,5 +27,8 @@ const Homepage = (props) =>{
     </PageContainer>
   )
 }
+
+
+
 
 export default Homepage;

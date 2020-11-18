@@ -8,5 +8,6 @@
     },
     "emmet.preferences": {
     
-    }
+    },
+    "git.ignoreLimitWarning": true
 }
