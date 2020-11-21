@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
-
+import React from 'react'
+import styled from 'styled-components'
 
 const ButtonWrapper = styled.button`
     border-radius : 5px;
@@ -31,13 +30,12 @@ const ButtonWrapper = styled.button`
   
     }
 
-`;
+`
 
-function Button({children}){
-    return (
-        <ButtonWrapper>{children}</ButtonWrapper>
-    )
-
+function Button ({ children }) {
+  return (
+    <ButtonWrapper>{children}</ButtonWrapper>
+  )
 }
 
 // const ButtonWrapper = styled.button`
@@ -61,4 +59,4 @@ function Button({children}){
 //   return <ButtonWrapper {...props}>{props.children}</ButtonWrapper>;
 // }
 
-export default Button;
+export default Button

@@ -1,4 +1,4 @@
 export const Color = {
-    red : "#fc3109",
+  red: '#fc3109'
 
 }
