@@ -12,8 +12,11 @@
 .env.test.local
 .env.production.local
 
+
 **/.DS_Store
 node_modules/
 config.json
-.vscode/settings.json
 backend/.env
+.vscode/settings.json
+.zsh.save
+.zshrc.save
