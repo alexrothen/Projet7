@@ -6,8 +6,8 @@ import BackgroundImg from '../assets/icon.png'
 const PageContainer = styled.div`
   width: 100%;
   height: 100vh;
-  padding : 0;
-  background: no-repeat center/40% url(${BackgroundImg})
+  padding: 0;
+  background: no-repeat center/40% url(${BackgroundImg});
 `
 
 const BackgroundGrey = styled.div`
@@ -16,7 +16,7 @@ const BackgroundGrey = styled.div`
   background-color: rgba(245, 245, 245, 0.7);
 `
 
-const Homepage = (props) => {
+const Homepage = props => {
   return (
     <PageContainer>
       <BackgroundGrey>

@@ -14,10 +14,17 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=5500 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier-standard --format",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier-standard --lint"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +45,8 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.21.5"
+    "prettier-standard": "^16.4.1",
+    "react-hook-form": "^6.11.5",
+    "standard": "^16.0.3"
   }
 }

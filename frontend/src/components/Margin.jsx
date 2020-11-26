@@ -3,8 +3,8 @@ import styled from 'styled-components/macro'
 
 const HorizontalMargin = styled.div`
   display: flex;
-  width : ${({ margin }) => margin};
-  `
+  width: ${({ margin }) => margin};
+`
 
 const VerticalMargin = styled.span`
   display: flex;

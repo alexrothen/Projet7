@@ -23,7 +23,7 @@ const ButtonWrapper = styled.div`
   padding-right: 20px;
 `
 
-const Header = (props) => {
+const Header = props => {
   return (
     <HeaderContainer>
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
