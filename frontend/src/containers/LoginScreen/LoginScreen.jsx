@@ -70,9 +70,11 @@ export function LoginScreen () {
   const password = useRef({})
   password.current = watch('password', '')
 
+const onSubmit = data => console.log(data)
+
   return (
     <FormContainer>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Img src={ImgLogo} />
         <Margin direction='vertical' margin='4em' />
         <Input
@@ -84,6 +86,7 @@ export function LoginScreen () {
           ref={register({
             required: 'E-mail requis'
           })}
+          
         />
         {errors.email && <Span>{errors.email.message}</Span>}
         <Margin direction='vertical' margin='0.5em' />
@@ -131,7 +134,7 @@ export function LoginScreen () {
           ref={register({
             required: 'Confirmer le mot de passe',
             validate: value =>
-              value !== password.current && (
+              value === password.current || (
                 <Span>Les mots de passe ne correspondent pas</Span>
               )
           })}
