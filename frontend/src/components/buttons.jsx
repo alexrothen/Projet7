@@ -15,7 +15,7 @@ const ButtonWrapper = styled.button`
   color: {Color.red };
   background-color: #fff;
   outline : ${Color.red};
-  width: 110px;
+  width: 120px;
   height : 35px;
   font-weight: bold;
   cursor: pointer;

@@ -1,16 +1,17 @@
 // Imports
 
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
-import ImgLogo from '../assets/icon-left-font copie.png'
+import ImgLogo from '../assets/icon-left-font.svg'
 import { Margin } from './Margin'
 import { Color } from '../color'
 import '../index.css'
 import Button from './buttons'
+import { Dialog } from '@material-ui/core'
 
 // Styled components
-const FormContainer = styled.dialog`
+const Form = styled.form`
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -18,22 +19,20 @@ const FormContainer = styled.dialog`
   width: 400px;
   height: 470px;
   border: none;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: -7px 5px 44px 8px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: -7px 5px 44px 8px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: -7px 5px 44px 8px rgba(0, 0, 0, 0.15);
+  background-color : transparent;
 `
 
 const Input = styled.input`
-  margin: auto;
+  margin : 0 auto;
   font-weight: bold;
   display: flex;
-  width: 250px;
-  line-height: 1.5;
+  width: 270px;
   border: none;
-  border-bottom : 1px dashed lightgrey;
-  outline : none;
+  border-bottom: 1px dashed lightgrey;
+  outline: none;
+  &:focus {
+    outline: 0;
+  }
 `
 
 const Img = styled.img`
@@ -51,18 +50,21 @@ const Span = styled.span`
   color: ${Color.red};
 `
 
-export function ModalForm () {
+export function ModalForm ({open}) {
   const { register, errors, handleSubmit, watch } = useForm({})
   const password = useRef({})
   password.current = watch('password', '')
 
   const onSubmit = data => console.log(data)
 
+
   return (
-    <FormContainer open>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <Dialog open={open}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Margin direction='vertical' margin='1em' />
+
         <Img src={ImgLogo} />
-        <Margin direction='vertical' margin='3.5em' />
+        <Margin direction='vertical' margin='1em' />
         <label htmlFor='email' />
         <Input
           htmlFor='email'
@@ -125,9 +127,10 @@ export function ModalForm () {
         {errors.passwordConfirmation && (
           <Span>{errors.passwordConfirmation.message}</Span>
         )}
-        <Margin direction='vertical' margin='3.5em' />
+        <Margin direction='vertical' margin='1.5em' />
         <Button type='submit'>S'INSCRIRE</Button>
-      </form>
-    </FormContainer>
+        <Margin direction='vertical' margin='1.5em' />
+      </Form>
+    </Dialog>
   )
 }
