@@ -21,20 +21,24 @@ export function Homepage () {
   const [open, setOpen] = useState(false)
   const [blur, setBlur] = useState('')
 
+  const handleOpen = () => setOpen(true)
+
+  const handleClose = () => setOpen(false)
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      setOpen(true)
       setBlur('10px')
+      handleOpen()
     }, 1000)
     return () => clearTimeout(timer)
   }, [])
 
   return (
-    <PageContainer style={{ filter: open ? "blur(5px)" : "none" }}>
+    <PageContainer style={{ filter: open ? 'blur(5px)' : 'none' }}>
       <BackgroundGrey>
         <Header />
         <Margin direction='vertical' margin='8vh' />
-        <ModalForm open={open} />
+        <ModalForm open={open} onClose={handleClose} />
       </BackgroundGrey>
     </PageContainer>
   )

@@ -3,12 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
-import ImgLogo from '../assets/icon-left-font.svg'
+import ImgLogo from '../assets/icon-left-font-monochrome-black.png'
 import { Margin } from './Margin'
 import { Color } from '../color'
 import '../index.css'
 import Button from './buttons'
-import { Dialog } from '@material-ui/core'
+import { Dialog, SwipeableDrawer } from '@material-ui/core'
 
 // Styled components
 const Form = styled.form`
@@ -19,11 +19,11 @@ const Form = styled.form`
   width: 400px;
   height: 470px;
   border: none;
-  background-color : transparent;
+  background-color: transparent;
 `
 
 const Input = styled.input`
-  margin : 0 auto;
+  margin: 0 auto;
   font-weight: bold;
   display: flex;
   width: 270px;
@@ -33,12 +33,17 @@ const Input = styled.input`
   &:focus {
     outline: 0;
   }
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.9em;
+    font-weight: lighter;
+  }
 `
 
 const Img = styled.img`
   margin: auto;
   display: flex;
-  height: 65px;
+  width: 280px;
 `
 
 const Span = styled.span`
@@ -50,19 +55,17 @@ const Span = styled.span`
   color: ${Color.red};
 `
 
-export function ModalForm ({open}) {
+export function ModalForm ({ open, onClose }) {
   const { register, errors, handleSubmit, watch } = useForm({})
   const password = useRef({})
   password.current = watch('password', '')
 
   const onSubmit = data => console.log(data)
 
-
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={onClose}>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Margin direction='vertical' margin='1em' />
-
         <Img src={ImgLogo} />
         <Margin direction='vertical' margin='1em' />
         <label htmlFor='email' />
@@ -128,7 +131,9 @@ export function ModalForm ({open}) {
           <Span>{errors.passwordConfirmation.message}</Span>
         )}
         <Margin direction='vertical' margin='1.5em' />
-        <Button type='submit'>S'INSCRIRE</Button>
+        <Button type='submit' onClick={onClose}>
+          S'INSCRIRE
+        </Button>
         <Margin direction='vertical' margin='1.5em' />
       </Form>
     </Dialog>
