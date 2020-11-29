@@ -28,8 +28,7 @@ const Header = props => {
     <HeaderContainer>
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
       <ButtonWrapper>
-        <Button>LOG IN</Button>
-        <Button>SIGN UP</Button>
+        <Button>Nom</Button>
       </ButtonWrapper>
     </HeaderContainer>
   )

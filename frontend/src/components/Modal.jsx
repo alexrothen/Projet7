@@ -1,59 +1,45 @@
 // Imports
 
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
-import ImgLogo from '../../assets/icon-left-font copie.png'
-import { Margin } from '../../components/Margin'
-import { Color } from '../../color'
-import '../../index.css'
+import ImgLogo from '../assets/icon-left-font copie.png'
+import { Margin } from './Margin'
+import { Color } from '../color'
+import '../index.css'
+import Button from './buttons'
 
 // Styled components
-
-const FormContainer = styled.div`
+const FormContainer = styled.dialog`
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 400px;
   height: 470px;
+  border: none;
   border-radius: 10px;
+  background-color: #fff;
   box-shadow: -7px 5px 44px 8px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: -7px 5px 44px 8px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: -7px 5px 44px 8px rgba(0, 0, 0, 0.15);
 `
 
 const Input = styled.input`
-  font-weight: bold;
-  display: block;
   margin: auto;
+  font-weight: bold;
+  display: flex;
   width: 250px;
-  line-height: 1.4;
+  line-height: 1.5;
+  border: none;
+  border-bottom : 1px dashed lightgrey;
+  outline : none;
 `
 
 const Img = styled.img`
   margin: auto;
   display: flex;
   height: 65px;
-`
-
-const SignUpButton = styled.button`
-  display: block;
-  margin: auto;
-  font-weight: black;
-  cursor: pointer;
-  border: transparent;
-  outline: none;
-  border-radius: 4px;
-  transition: ease-in-out all 180ms;
-  background-color: ${Color.red};
-  color: white;
-  font-weight: bold;
-  width: 115px;
-  height: 2.5em;
-  :hover {
-    opacity: 0.75;
-  }
 `
 
 const Span = styled.span`
@@ -65,18 +51,19 @@ const Span = styled.span`
   color: ${Color.red};
 `
 
-export function LoginScreen () {
+export function ModalForm () {
   const { register, errors, handleSubmit, watch } = useForm({})
   const password = useRef({})
   password.current = watch('password', '')
 
-const onSubmit = data => console.log(data)
+  const onSubmit = data => console.log(data)
 
   return (
-    <FormContainer>
+    <FormContainer open>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Img src={ImgLogo} />
-        <Margin direction='vertical' margin='4em' />
+        <Margin direction='vertical' margin='3.5em' />
+        <label htmlFor='email' />
         <Input
           htmlFor='email'
           name='email'
@@ -86,10 +73,8 @@ const onSubmit = data => console.log(data)
           ref={register({
             required: 'E-mail requis'
           })}
-          
         />
         {errors.email && <Span>{errors.email.message}</Span>}
-        <Margin direction='vertical' margin='0.5em' />
         <label htmlFor='username' />
         <Input
           name='username'
@@ -106,7 +91,6 @@ const onSubmit = data => console.log(data)
           })}
         />
         {errors.username && <Span>{errors.username.message}</Span>}
-        <Margin direction='vertical' margin='0.5em' />
         <label htmlFor='password' />
         <Input
           htmlFor='password'
@@ -123,7 +107,6 @@ const onSubmit = data => console.log(data)
           })}
         />
         {errors.password && <Span>{errors.password.message}</Span>}
-        <Margin direction='vertical' margin='0.5em' />
         <label htmlFor='passwordConfirmation' />
         <Input
           htmlFor='passwordConfirmation'
@@ -142,8 +125,8 @@ const onSubmit = data => console.log(data)
         {errors.passwordConfirmation && (
           <Span>{errors.passwordConfirmation.message}</Span>
         )}
-        <Margin direction='vertical' margin='5em' />
-        <SignUpButton type='submit'>S'INSCRIRE</SignUpButton>
+        <Margin direction='vertical' margin='3.5em' />
+        <Button type='submit'>S'INSCRIRE</Button>
       </form>
     </FormContainer>
   )
