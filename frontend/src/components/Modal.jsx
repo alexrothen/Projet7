@@ -8,7 +8,7 @@ import { Margin } from './Margin'
 import { Color } from '../color'
 import '../index.css'
 import Button from './buttons'
-import { Dialog, SwipeableDrawer } from '@material-ui/core'
+import { Dialog } from '@material-ui/core'
 
 // Styled components
 const Form = styled.form`
@@ -25,18 +25,20 @@ const Form = styled.form`
 const Input = styled.input`
   margin: 0 auto;
   font-weight: bold;
+  font-size : 1em;
   display: flex;
-  width: 270px;
+  width: 250px;
   border: none;
-  border-bottom: 1px dashed lightgrey;
+  border-bottom: 1px dashed ${Color.grey}
+;
   outline: none;
   &:focus {
     outline: 0;
   }
   ::placeholder {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 0.9em;
+    color: ${Color.grey};
     font-weight: lighter;
+    font-size: 1em;
   }
 `
 
@@ -60,11 +62,11 @@ export function ModalForm ({ open, onClose }) {
   const password = useRef({})
   password.current = watch('password', '')
 
-  const onSubmit = data => console.log(data)
+  const dataSubmitted = data => console.log(data)
 
   return (
-    <Dialog open={open} onClose={onClose}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+    <Dialog open={open} >
+      <Form onSubmit={handleSubmit(dataSubmitted)} onClose={onClose}>
         <Margin direction='vertical' margin='1em' />
         <Img src={ImgLogo} />
         <Margin direction='vertical' margin='1em' />
@@ -76,10 +78,13 @@ export function ModalForm ({ open, onClose }) {
           placeholder='E-MAIL'
           aria-invalid={errors.email ? 'true' : 'false'}
           ref={register({
-            required: 'E-mail requis'
+            required: 'E-mail requis',
+            pattern: !/\S+@\S+\.\S+/
           })}
         />
         {errors.email && <Span>{errors.email.message}</Span>}
+        <Margin direction='vertical' margin='1em' />
+
         <label htmlFor='username' />
         <Input
           name='username'
@@ -96,6 +101,8 @@ export function ModalForm ({ open, onClose }) {
           })}
         />
         {errors.username && <Span>{errors.username.message}</Span>}
+        <Margin direction='vertical' margin='1em' />
+
         <label htmlFor='password' />
         <Input
           htmlFor='password'
@@ -112,6 +119,8 @@ export function ModalForm ({ open, onClose }) {
           })}
         />
         {errors.password && <Span>{errors.password.message}</Span>}
+        <Margin direction='vertical' margin='1em' />
+
         <label htmlFor='passwordConfirmation' />
         <Input
           htmlFor='passwordConfirmation'
@@ -131,9 +140,7 @@ export function ModalForm ({ open, onClose }) {
           <Span>{errors.passwordConfirmation.message}</Span>
         )}
         <Margin direction='vertical' margin='1.5em' />
-        <Button type='submit' onClick={onClose}>
-          S'INSCRIRE
-        </Button>
+        <Button type='submit'>S'INSCRIRE</Button>
         <Margin direction='vertical' margin='1.5em' />
       </Form>
     </Dialog>

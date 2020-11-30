@@ -4,6 +4,7 @@ import Header from '../components/header'
 import { Margin } from '../components/Margin'
 import { ModalForm } from '../components/Modal'
 import { Color } from '../color'
+import { Dialog } from '@material-ui/core'
 
 const PageContainer = styled.div`
   width: 100%;
@@ -19,17 +20,14 @@ const BackgroundGrey = styled.div`
 
 export function Homepage () {
   const [open, setOpen] = useState(false)
-  const [blur, setBlur] = useState('')
 
   const handleOpen = () => setOpen(true)
-
   const handleClose = () => setOpen(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setBlur('10px')
-      handleOpen()
-    }, 1000)
+    handleOpen()
+    }, 2000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -38,7 +36,7 @@ export function Homepage () {
       <BackgroundGrey>
         <Header />
         <Margin direction='vertical' margin='8vh' />
-        <ModalForm open={open} onClose={handleClose} />
+        <ModalForm open={open} />
       </BackgroundGrey>
     </PageContainer>
   )

@@ -1,13 +1,11 @@
-#root {
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
+html {
+  font-size: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
-
-
+#root {
+  padding: 0;
+  margin: 0;
+}

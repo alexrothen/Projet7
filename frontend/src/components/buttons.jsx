@@ -10,12 +10,12 @@ const ButtonWrapper = styled.button`
   padding-right: 20px;
   border-radius: 5px;
   padding: 7px 16px;
-  font-size: 1.05em;
+  font-size: 1.02em;
   border: 2px solid ${Color.red};
   color: {Color.red };
   background-color: #fff;
   outline : ${Color.red};
-  width: 140px;
+  width: 130px;
   height : 35px;
   font-weight: bold;
   cursor: pointer;
@@ -30,9 +30,8 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-
-export function Button ({children}) {
-  return <ButtonWrapper>{children}</ButtonWrapper>
+const Button = props => {
+  return <ButtonWrapper {...props}>{props.children}</ButtonWrapper>
 }
 
 export default Button
