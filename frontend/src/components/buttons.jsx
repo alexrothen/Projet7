@@ -30,8 +30,8 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-const Button = props => {
-  return <ButtonWrapper {...props}>{props.children}</ButtonWrapper>
+const Button = ({children, disabled, type}) => {
+  return <ButtonWrapper type={type} disabled={disabled}>{children}</ButtonWrapper>
 }
 
 export default Button
