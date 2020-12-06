@@ -24,11 +24,14 @@ const ButtonWrapper = styled.div`
 `
 
 const Header = props => {
+
   return (
     <HeaderContainer>
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
       <ButtonWrapper>
-        <Button>Nom</Button>
+        <Button type='button'>
+          PROFIL
+        </Button>
       </ButtonWrapper>
     </HeaderContainer>
   )

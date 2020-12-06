@@ -1,20 +1,26 @@
 import styled from 'styled-components'
 import { Color } from '../color'
-import * as yup from 'yup'
 
 export const Form = styled.form`
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 400px;
   height: 470px;
+  width: 400px;
   border: none;
   background-color: transparent;
 `
+export const BlockInput = styled.div`
+  display: flex;
+  height: 190px;
+  margin-top: 25%;
+  flex-direction: column;
+  justify-content: center;
+`
 
 export const Input = styled.input`
-  margin: 0 auto;
+  margin: 0.5em auto;
   font-weight: bold;
   font-size: 1em;
   display: flex;
@@ -31,13 +37,13 @@ export const Input = styled.input`
     font-size: 1em;
   }
 `
-
 export const Img = styled.img`
-  margin: auto;
-  display: flex;
   width: 280px;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
 `
-
 export const Span = styled.span`
   margin: auto;
   display: flex;
@@ -47,43 +53,15 @@ export const Span = styled.span`
   text-align: center;
   color: ${Color.red};
 `
-
-export const signUpSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email("L'adresse e-mail doit être valide")
-    .required('Email requis'),
-  username: yup
-    .string()
-    .required("Nom d'utilisateur requis")
-    .matches(
-      /^[A-Za-zéèàê0-9(-.')]+$/,
-      "Le nom d'utilisateur ne doit pas contenir de caractères spéciaux"
-    ),
-  password: yup
-    .string()
-    .required('Mot de passe requis')
-    .min(6, 'Le mot de passe doit comporter au moins 6 caractères'),
-  passwordConfirmation: yup
-    .string()
-    .oneOf(
-      [yup.ref('password'), null],
-      'Les mots de passe ne correspondent pas'
-    )
-})
-
-export const loginSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email()
-    .required(),
-  password: yup.string().required('Mot de passe requis')
-})
-
 export const SpanMessage = styled.span`
   display: inline-flex;
+  margin: 0 auto;
+  width: fit-content;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-
+  transition: all ease-in-out 180ms;
+  &:hover {
+    text-decoration: underline 2px ${Color.red};
+  }
 `

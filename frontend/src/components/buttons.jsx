@@ -4,7 +4,7 @@ import { Color } from '../color'
 
 const ButtonWrapper = styled.button`
   display: flex;
-  margin : auto;
+  margin : 0 auto;
   align-items: center;
   justify-content: center;
   padding-right: 20px;

@@ -4,11 +4,16 @@ import { Dialog } from '@material-ui/core'
 import { SignUpForm } from '../components/signUp'
 import { LoginForm } from '../components/login'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { signUpSchema, loginSchema } from '../components/form'
+import { signUpSchema, loginSchema } from '../components/schemas'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
 
 export function Modal () {
   const [open, setOpen] = useState(true)
   const [login, toggleLogin] = useState(true)
+
+  const theme = useTheme()
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   const { isSubmitSuccessful } = useForm()
 
@@ -43,8 +48,13 @@ export function Modal () {
   }
 
   return (
-    <Dialog open={open} style={{ backdropFilter: 'blur(4px)' }}>
+    <Dialog
+      fullScreen={fullScreen}
+      open={open}
+      style={{ backdropFilter: 'blur(4px)' }}
+    >
       {login ? (
+        // eslint-disable-next-line
         <FormProvider {...loginProps}>
           <LoginForm
             onSubmit={loginProps.handleSubmit(handleClose)}

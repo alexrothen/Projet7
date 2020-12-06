@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/header'
-import { Margin } from '../components/margin'
 import { Color } from '../color'
 import { Modal } from './modal'
 
@@ -22,7 +21,6 @@ export function Homepage () {
     <PageContainer>
       <BackgroundGrey>
         <Header />
-        <Margin direction='vertical' margin='8vh' />
         <Modal />
       </BackgroundGrey>
     </PageContainer>
