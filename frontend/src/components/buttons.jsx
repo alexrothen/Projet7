@@ -30,8 +30,12 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-const Button = ({children, disabled, type}) => {
-  return <ButtonWrapper type={type} disabled={disabled}>{children}</ButtonWrapper>
+const Button = ({ children, disabled, type }) => {
+  return (
+    <ButtonWrapper type={type} disabled={disabled}>
+      {children}
+    </ButtonWrapper>
+  )
 }
 
 export default Button

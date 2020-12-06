@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/header'
-import { Margin } from '../components/Margin'
-import { ModalForm } from '../components/Modal'
+import { Margin } from '../components/margin'
 import { Color } from '../color'
+import { Modal } from './modal'
 
 const PageContainer = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ export function Homepage () {
       <BackgroundGrey>
         <Header />
         <Margin direction='vertical' margin='8vh' />
-        <ModalForm />
+        <Modal />
       </BackgroundGrey>
     </PageContainer>
   )
