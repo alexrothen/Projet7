@@ -53,22 +53,23 @@ export function Modal () {
       open={open}
       style={{ backdropFilter: 'blur(4px)' }}
     >
-      {login ? (
-        // eslint-disable-next-line
-        <FormProvider {...loginProps}>
-          <LoginForm
-            onSubmit={loginProps.handleSubmit(handleClose)}
-            onClick={() => toggleLogin(false)}
-          />
-        </FormProvider>
-      ) : (
-        <FormProvider {...signUpProps}>
-          <SignUpForm
-            onSubmit={signUpProps.handleSubmit(handleClose)}
-            onClick={() => toggleLogin(true)}
-          />
-        </FormProvider>
-      )}
+      {login
+        ? (
+          <FormProvider {...loginProps}>
+            <LoginForm
+              onSubmit={loginProps.handleSubmit(handleClose)}
+              onClick={() => toggleLogin(false)}
+            />
+          </FormProvider>
+          )
+        : (
+          <FormProvider {...signUpProps}>
+            <SignUpForm
+              onSubmit={signUpProps.handleSubmit(handleClose)}
+              onClick={() => toggleLogin(true)}
+            />
+          </FormProvider>
+          )}
     </Dialog>
   )
 }

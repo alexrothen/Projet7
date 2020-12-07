@@ -4,7 +4,7 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import ImgLogo from '../assets/icon-left-font-monochrome-black.png'
 import { Margin } from './margin'
-import { Form, Input, Img, Span, SpanMessage, BlockInput } from './form'
+import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
 import '../index.css'
 import Button from './buttons'
 

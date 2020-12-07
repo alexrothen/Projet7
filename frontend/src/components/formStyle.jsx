@@ -60,7 +60,6 @@ export const SpanMessage = styled.span`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: all ease-in-out 180ms;
   &:hover {
     text-decoration: underline 2px ${Color.red};
   }

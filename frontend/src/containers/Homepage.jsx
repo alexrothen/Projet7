@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/header'
 import { Color } from '../color'
-import { Modal } from './modal'
 
 const PageContainer = styled.div`
   width: 100%;
@@ -21,7 +20,6 @@ export function Homepage () {
     <PageContainer>
       <BackgroundGrey>
         <Header />
-        <Modal />
       </BackgroundGrey>
     </PageContainer>
   )
