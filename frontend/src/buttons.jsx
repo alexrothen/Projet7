@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Color } from '../color'
+import { Color } from './color'
 
 const ButtonWrapper = styled.button`
   display: flex;
@@ -30,10 +30,10 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-const Button = ({ children, disabled, type }) => {
+const Button = (props) => {
   return (
-    <ButtonWrapper type={type} disabled={disabled}>
-      {children}
+    <ButtonWrapper {...props}>
+      {props.children}
     </ButtonWrapper>
   )
 }

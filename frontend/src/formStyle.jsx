@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Color } from '../color'
+import { Color } from './color'
 
 export const Form = styled.form`
   margin: auto;

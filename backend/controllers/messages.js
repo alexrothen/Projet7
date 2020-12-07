@@ -16,7 +16,7 @@ exports.createMessage = (req, res, next) => {
     .save()
     .then(() => res.status(201).json({ message: 'message enregistré !' }))
     .catch((error) => res.status(400).json({ error }))
-};
+}
 
 // -----------------------Récupération d'une message (GET)
 exports.getOneMessage = (req, res, next) => {
@@ -29,7 +29,7 @@ exports.getOneMessage = (req, res, next) => {
     .catch((error) => {
       res.status(404).json({ error: error })
     })
-};
+}
 
 // -----------------------Modification d'une message (PUT)
 exports.modifyMessage = (req, res, next) => {
@@ -53,14 +53,14 @@ exports.modifyMessage = (req, res, next) => {
   )
     .then(() => res.status(200).json({ message: 'message modifié !' }))
     .catch((error) => res.status(400).json({ error }))
-};
+}
 
 // -----------------------Suppression d'une message (DELETE)
 exports.deleteMessage = (req, res, next) => {
   Message.destroy()
     .then(() => res.status(200).json({ message: 'message supprimé !' }))
     .catch((error) => res.status(400).json({ error }))
-};
+}
 
 // -----------------------Récupération des messages (GET)
 exports.getAllMessages = (req, res, next) => {
@@ -73,7 +73,7 @@ exports.getAllMessages = (req, res, next) => {
         error: error
       })
     })
-};
+}
 
 // -----------------------Thumbs up/down (POST)
 exports.likeMessage = (req, res, next) => {
@@ -90,7 +90,7 @@ exports.likeMessage = (req, res, next) => {
         )
         .catch((error) => res.status(400).json({ error }))
       console.log("Trop piquant j'imagine ?")
-      break;
+      break
 
     // L'utilisateur aime la message :
     case 1:
@@ -104,7 +104,7 @@ exports.likeMessage = (req, res, next) => {
         )
         .catch((error) => res.status(400).json({ error }))
       console.log("Merci d'aimer cette message !")
-      break;
+      break
 
     // L'utilisateur change d'avis...
     case 0:
@@ -143,6 +143,6 @@ exports.likeMessage = (req, res, next) => {
           console.log("Il fallait juste le temps de s'y habituer")
         }
       })
-      break;
+      break
   }
 }

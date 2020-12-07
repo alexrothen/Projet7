@@ -1,12 +1,12 @@
 import React from 'react'
-import { Homepage } from './containers/Homepage'
-import { Modal } from './containers/modal'
+import { Homepage } from './Homepage'
+import { Modal } from './modal'
 
 export function App () {
   return (
     <>
       <Homepage />
-      <Modal />
+      {/* <Modal /> */}
     </>
   )
 }
