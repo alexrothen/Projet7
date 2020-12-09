@@ -8,10 +8,8 @@ import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
 import './index.css'
 import Button from './buttons'
 
-export function LoginForm ({ onClick, onSubmit }) {
+export const LoginForm = ({ onClickSubmit, onClickToggle, onSubmit, disabled }) => {
   const { register, errors, formState } = useFormContext()
-
-  const { isSubmitting } = formState
 
   return (
     <Form onSubmit={onSubmit}>
@@ -38,11 +36,15 @@ export function LoginForm ({ onClick, onSubmit }) {
         {errors.password && <Span>{errors.password.message}</Span>}
       </BlockInput>
       <Margin direction='vertical' margin='2.5em' />
-      <Button disabled={isSubmitting} type='submit'>
+      <Button
+        disabled={!formState.isValid}
+        onClick={onClickSubmit}
+        type='submit'
+      >
         CONNEXION
       </Button>
       <Margin direction='vertical' margin='2em' />
-      <SpanMessage onClick={onClick}>Pas encore inscrit ?</SpanMessage>
+      <SpanMessage onClick={onClickToggle}>Pas encore inscrit ?</SpanMessage>
     </Form>
   )
 }

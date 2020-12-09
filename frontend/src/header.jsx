@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+
 import styled from 'styled-components'
 import GroupomaniaLogoUrl from './assets/icon-left-font-monochrome-black.svg'
 import Button from './buttons'
@@ -33,9 +34,9 @@ const Header = () => {
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
       <ButtonWrapper>
         <Button type='button' onClick={toggle}>
-          PROFIL
+          DECONNEXION
         </Button>
-        <Modal isOpen={isOpen} toggle={toggle} />
+        <Modal open={isOpen} close={toggle} />
       </ButtonWrapper>
     </HeaderContainer>
   )

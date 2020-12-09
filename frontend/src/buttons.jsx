@@ -30,10 +30,10 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-const Button = (props) => {
+const Button = ({children, ...props }) => {
   return (
     <ButtonWrapper {...props}>
-      {props.children}
+      {children}
     </ButtonWrapper>
   )
 }

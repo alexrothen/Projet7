@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Dialog } from '@material-ui/core'
 import { SignUpForm } from './signUp'
@@ -8,66 +8,58 @@ import { signUpSchema, loginSchema } from './schemas'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useTheme } from '@material-ui/core/styles'
 
-export const Modal = ({ isOpen, toggle }) => {
+export const Modal = ({ open, close }) => {
   const [login, toggleLogin] = useState(true)
 
   const theme = useTheme()
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
-  const { isSubmitSuccessful } = useForm()
-  const signUpValues = {
-    email: 'alex.rothenburger@gmail.com',
-    username: 'alexis',
-    password: 'aaaaaaaa',
-    passwordConfirmation: 'aaaaaaaa'
-  }
+  // const signUpValues = {
+  //   email: 'alex.rothenburger@gmail.com',
+  //   username: 'alexis',
+  //   password: 'aaaaaaaa',
+  //   passwordConfirmation: 'aaaaaaaa'
+  // }
 
-  const loginValues = {
-    username: 'alexis',
-    password: 'aaaaaaaa'
-  }
+  // const loginValues = {
+  //   username: 'alexis',
+  //   password: 'aaaaaaaa'
+  // }
 
   const signUpProps = useForm({
     mode: 'onChange',
     resolver: yupResolver(signUpSchema),
-    defaultValues: signUpValues
+    defaultValues: ''
   })
 
   const loginProps = useForm({
     mode: 'onChange',
     resolver: yupResolver(loginSchema),
-    defaultValues: loginValues
+    defaultValues: ''
   })
 
-  async function handleClose (data) {
-    await isSubmitSuccessful
-    console.log(data)
-  }
-
-  // const handleOpen = () => setIsOpen(true)
-
-  // useEffect(() => {
-  //   handleOpen()
-  // }, [])
+  const onSubmit = data => console.log(data)
 
   return (
     <Dialog
       fullScreen={fullScreen}
-      open={isOpen}
+      open={open}
       style={{ backdropFilter: 'blur(4px)' }}
     >
       {login ? (
         <FormProvider {...loginProps}>
           <LoginForm
-            onSubmit={loginProps.handleSubmit(handleClose)}
-            onClick={() => toggleLogin(false)}
+            onSubmit={loginProps.handleSubmit(onSubmit)}
+            onClickToggle={() => toggleLogin(false)}
+            onClickSubmit={close}
           />
         </FormProvider>
       ) : (
         <FormProvider {...signUpProps}>
           <SignUpForm
-            onSubmit={signUpProps.handleSubmit(handleClose)}
-            onClick={() => toggleLogin(true)}
+            onSubmit={signUpProps.handleSubmit(onSubmit)}
+            onClickToggle={() => toggleLogin(true)}
+            onClickSubmit={close}
           />
         </FormProvider>
       )}

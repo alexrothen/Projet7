@@ -8,10 +8,9 @@ import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
 import './index.css'
 import Button from './buttons'
 
-export function SignUpForm ({ onClick, onSubmit }) {
+export const SignUpForm = ({ onClickToggle, onClickSubmit, onSubmit }) => {
   const { register, errors, formState } = useFormContext()
 
-  const { isSubmitting } = formState
 
   return (
     <Form onSubmit={onSubmit}>
@@ -59,12 +58,16 @@ export function SignUpForm ({ onClick, onSubmit }) {
           <Span>{errors.passwordConfirmation.message}</Span>
         )}
       </BlockInput>
-      <Margin direction='vertical' margin='2.5em' />
-      <Button disabled={isSubmitting} type='submit'>
-        S'INSCRIRE
+      <Margin direction='vertical' margin='2.5em' />;
+      <Button
+        disabled={!formState.isValid}
+        onClick={onClickSubmit}
+        type='submit'
+      >
+        CONNEXION
       </Button>
       <Margin direction='vertical' margin='2em' />
-      <SpanMessage onClick={onClick}>Déjà inscrit ?</SpanMessage>
+      <SpanMessage onClick={onClickToggle}>Déjà inscrit ?</SpanMessage>
     </Form>
   )
 }
