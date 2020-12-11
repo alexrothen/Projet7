@@ -1,4 +1,4 @@
-import React from 'react'
+import react from 'react'
 import styled from 'styled-components'
 import { Color } from './color'
 
@@ -30,12 +30,6 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-const Button = ({children, ...props }) => {
-  return (
-    <ButtonWrapper {...props}>
-      {children}
-    </ButtonWrapper>
-  )
+export const Button = ({ children, ...props }) => {
+  return <ButtonWrapper {...props}>{children}</ButtonWrapper>
 }
-
-export default Button

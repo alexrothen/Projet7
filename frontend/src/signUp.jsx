@@ -6,11 +6,15 @@ import ImgLogo from './assets/icon-left-font-monochrome-black.png'
 import { Margin } from './margin'
 import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
 import './index.css'
-import Button from './buttons'
+import { Button } from './buttons'
 
-export const SignUpForm = ({ onClickToggle, onClickSubmit, onSubmit }) => {
-  const { register, errors, formState } = useFormContext()
-
+export const SignUpForm = ({
+  onClickToggle,
+  onClickSubmit,
+  onSubmit,
+  disabled
+}) => {
+  const { register, errors } = useFormContext()
 
   return (
     <Form onSubmit={onSubmit}>
@@ -59,11 +63,7 @@ export const SignUpForm = ({ onClickToggle, onClickSubmit, onSubmit }) => {
         )}
       </BlockInput>
       <Margin direction='vertical' margin='2.5em' />;
-      <Button
-        disabled={!formState.isValid}
-        onClick={onClickSubmit}
-        type='submit'
-      >
+      <Button disabled={disabled} onClick={onClickSubmit} type='submit'>
         CONNEXION
       </Button>
       <Margin direction='vertical' margin='2em' />

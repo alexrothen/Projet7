@@ -6,15 +6,22 @@ import ImgLogo from './assets/icon-left-font-monochrome-black.png'
 import { Margin } from './margin'
 import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
 import './index.css'
-import Button from './buttons'
+import { Button } from './buttons'
 
-export const LoginForm = ({ onClickSubmit, onClickToggle, onSubmit, disabled }) => {
-  const { register, errors, formState } = useFormContext()
+export const LoginForm = ({
+  onClickSubmit,
+  onClickToggle,
+  onSubmit,
+  disabled
+}) => {
+  const { register, errors } = useFormContext()
 
   return (
     <Form onSubmit={onSubmit}>
-      <Img src={ImgLogo} /> <label htmlFor='username' />
+      <Img src={ImgLogo} />
       <BlockInput>
+        <label htmlFor='username' />
+
         <Input
           name='username'
           type='text'
@@ -23,8 +30,8 @@ export const LoginForm = ({ onClickSubmit, onClickToggle, onSubmit, disabled }) 
           ref={register()}
         />
         {errors.username && <Span>{errors.username.message}</Span>}
-        <label htmlFor='password' />
         <Margin direction='vertical' margin='1.2em' />
+        <label htmlFor='password' />
         <Input
           htmlFor='password'
           name='password'
@@ -36,11 +43,7 @@ export const LoginForm = ({ onClickSubmit, onClickToggle, onSubmit, disabled }) 
         {errors.password && <Span>{errors.password.message}</Span>}
       </BlockInput>
       <Margin direction='vertical' margin='2.5em' />
-      <Button
-        disabled={!formState.isValid}
-        onClick={onClickSubmit}
-        type='submit'
-      >
+      <Button disabled={disabled} onClick={onClickSubmit} type='submit'>
         CONNEXION
       </Button>
       <Margin direction='vertical' margin='2em' />

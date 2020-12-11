@@ -10,33 +10,22 @@ import { useTheme } from '@material-ui/core/styles'
 
 export const Modal = ({ open, close }) => {
   const [login, toggleLogin] = useState(true)
-
   const theme = useTheme()
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
-  // const signUpValues = {
-  //   email: 'alex.rothenburger@gmail.com',
-  //   username: 'alexis',
-  //   password: 'aaaaaaaa',
-  //   passwordConfirmation: 'aaaaaaaa'
-  // }
-
-  // const loginValues = {
-  //   username: 'alexis',
-  //   password: 'aaaaaaaa'
-  // }
-
-  const signUpProps = useForm({
+  const signUpProps = {
     mode: 'onChange',
     resolver: yupResolver(signUpSchema),
     defaultValues: ''
-  })
+  }
 
-  const loginProps = useForm({
+  const loginProps = {
     mode: 'onChange',
     resolver: yupResolver(loginSchema),
     defaultValues: ''
-  })
+  }
+  const loginMethods = useForm(loginProps)
+  const signUpMethods = useForm(signUpProps)
 
   const onSubmit = data => console.log(data)
 
@@ -44,25 +33,37 @@ export const Modal = ({ open, close }) => {
     <Dialog
       fullScreen={fullScreen}
       open={open}
+      disableBackdropClick
+      disableEscapeKeyDown
       style={{ backdropFilter: 'blur(4px)' }}
     >
-      {login ? (
-        <FormProvider {...loginProps}>
-          <LoginForm
-            onSubmit={loginProps.handleSubmit(onSubmit)}
-            onClickToggle={() => toggleLogin(false)}
-            onClickSubmit={close}
-          />
-        </FormProvider>
-      ) : (
-        <FormProvider {...signUpProps}>
-          <SignUpForm
-            onSubmit={signUpProps.handleSubmit(onSubmit)}
-            onClickToggle={() => toggleLogin(true)}
-            onClickSubmit={close}
-          />
-        </FormProvider>
-      )}
+      {login
+        ? (
+          <FormProvider {...loginMethods}>
+            <LoginForm
+              onSubmit={loginMethods.handleSubmit(onSubmit)}
+              onClickToggle={() => toggleLogin(false)}
+              onClickSubmit={close}
+              disabled={
+                loginMethods.formState.isSubmitting ||
+                !loginMethods.formState.isValid
+              }
+            />
+          </FormProvider>
+          )
+        : (
+          <FormProvider {...signUpMethods}>
+            <SignUpForm
+              onSubmit={signUpMethods.handleSubmit(onSubmit)}
+              onClickToggle={() => toggleLogin(true)}
+              onClickSubmit={close}
+              disabled={
+                signUpMethods.formState.isSubmitting ||
+                !signUpMethods.formState.isValid
+              }
+            />
+          </FormProvider>
+          )}
     </Dialog>
   )
 }

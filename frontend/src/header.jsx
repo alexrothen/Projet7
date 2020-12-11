@@ -2,9 +2,9 @@ import React from 'react'
 
 import styled from 'styled-components'
 import GroupomaniaLogoUrl from './assets/icon-left-font-monochrome-black.svg'
-import Button from './buttons'
 import { useModal } from './useModal'
 import { Modal } from './modal'
+import { Button } from './buttons'
 
 const HeaderContainer = styled.div`
   display: flex;

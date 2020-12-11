@@ -22,7 +22,6 @@ export function Homepage () {
 
   useEffect(() => {
     handleOpen()
-    return toggle()
   }, [])
 
   return (

@@ -26,16 +26,9 @@ export const signUpSchema = yup.object().shape({
 })
 
 export const loginSchema = yup.object().shape({
-  username: yup
-    .string()
-    .required("Nom d'utilisateur requis")
-    .min(6, "Le nom d'utilisateur doit comporter au moins 6 caractères")
-    .matches(
-      /^[A-Za-zéèàê0-9(-.')]+$/,
-      "Le nom d'utilisateur ne doit pas contenir de caractères spéciaux"
-    ),
+  username: yup.string().required("Nom d'utilisateur requis"),
   password: yup
     .string()
     .required('Mot de passe requis')
-    .min(6, 'Le mot de passe doit comporter au moins 6 caractères')
+    .min(6, 'Le mot de passe comporte au moins 6 caractères')
 })
