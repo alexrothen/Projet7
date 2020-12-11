@@ -16,7 +16,6 @@ const BackgroundGrey = styled.div`
   height: 100vh;
   background-color: ${Color.bgColor};
 `
-
 export function Homepage () {
   const { isOpen, toggle, handleOpen } = useModal()
 

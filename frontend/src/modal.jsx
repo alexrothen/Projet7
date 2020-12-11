@@ -35,7 +35,7 @@ export const Modal = ({ open, close }) => {
       open={open}
       disableBackdropClick
       disableEscapeKeyDown
-      style={{ backdropFilter: 'blur(4px)' }}
+      style={{ backdropFilter: 'blur(0.8em)' }}
     >
       {login
         ? (

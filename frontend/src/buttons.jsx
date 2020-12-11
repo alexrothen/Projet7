@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Color } from './color'
 
@@ -12,7 +12,7 @@ const ButtonWrapper = styled.button`
   padding: 7px 16px;
   font-size: 1.02em;
   border: 2px solid ${Color.red};
-  color: {Color.red };
+  color: ${Color.red};
   background-color: #fff;
   outline : ${Color.red};
   width: 130px;
