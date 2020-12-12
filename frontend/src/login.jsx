@@ -6,7 +6,7 @@ import ImgLogo from './assets/icon-left-font-monochrome-black.png'
 import { Margin } from './margin'
 import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
 import './index.css'
-import { Button } from './buttons'
+import { ButtonConnect } from './buttons'
 
 export const LoginForm = ({
   onClickSubmit,
@@ -43,9 +43,9 @@ export const LoginForm = ({
         {errors.password && <Span>{errors.password.message}</Span>}
       </BlockInput>
       <Margin direction='vertical' margin='2.5em' />
-      <Button disabled={disabled} onClick={onClickSubmit} type='submit'>
+      <ButtonConnect disabled={disabled} onClick={onClickSubmit} type='submit'>
         CONNEXION
-      </Button>
+      </ButtonConnect>
       <Margin direction='vertical' margin='2em' />
       <SpanMessage onClick={onClickToggle}>Pas encore inscrit ?</SpanMessage>
     </Form>

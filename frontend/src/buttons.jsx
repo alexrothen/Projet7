@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Color } from './color'
 
-const ButtonWrapper = styled.button`
+const ButtonConnectWrapper = styled.button`
   display: flex;
   margin : 0 auto;
   align-items: center;
@@ -30,6 +30,33 @@ const ButtonWrapper = styled.button`
       outline: 0;
     }
 `
-export const Button = ({ children, ...props }) => {
-  return <ButtonWrapper {...props}>{children}</ButtonWrapper>
+const ButtonProfilWrapper = styled.button`
+  display: flex;
+  width : 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+  border-radius: 50%;
+  border: 2px solid ${Color.bgColor};
+  color: ${Color.red};
+  background-color: #fff;
+  outline : ${Color.red};
+  cursor: pointer;
+  transition: all ease-in-out 180ms;
+  color: #fff;
+    &:hover {
+  border: 2px solid ${Color.red};
+    }
+    &:focus{
+      outline: 0;
+    }
+`
+
+export const ButtonConnect = ({ children, ...props }) => {
+  return <ButtonConnectWrapper {...props}>{children}</ButtonConnectWrapper>
+}
+
+export const ButtonProfil = ({ children, ...props }) => {
+  return <ButtonProfilWrapper {...props}>{children}</ButtonProfilWrapper>
 }

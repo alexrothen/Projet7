@@ -6,14 +6,14 @@ import { Color } from './color'
 import { useModal } from './useModal'
 
 const PageContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  padding: 0;
+width : 100vw;
+height: 100vh;
+
 `
 
 const BackgroundGrey = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: 100vw;
+  height: 100%;
   background-color: ${Color.bgColor};
 `
 export function Homepage () {
@@ -25,10 +25,10 @@ export function Homepage () {
 
   return (
     <PageContainer>
-      <BackgroundGrey>
         <Header />
-        <Modal open={isOpen} close={toggle} />
+      <BackgroundGrey>
       </BackgroundGrey>
+        <Modal open={isOpen} close={toggle} />
     </PageContainer>
   )
 }
