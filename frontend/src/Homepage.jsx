@@ -25,10 +25,9 @@ export function Homepage () {
 
   return (
     <PageContainer>
-        <Header />
-      <BackgroundGrey>
-      </BackgroundGrey>
-        <Modal open={isOpen} close={toggle} />
+      <Header />
+      <BackgroundGrey />
+      <Modal open={isOpen} close={toggle} />
     </PageContainer>
   )
 }

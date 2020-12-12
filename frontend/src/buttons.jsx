@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Color } from './color'
+import ProfilImg from './assets/unnamed.jpg'
 
 const ButtonConnectWrapper = styled.button`
   display: flex;
@@ -32,8 +33,9 @@ const ButtonConnectWrapper = styled.button`
 `
 const ButtonProfilWrapper = styled.button`
   display: flex;
-  width : 35px;
-  height: 35px;
+  background: center / contain no-repeat url(${ProfilImg});
+  width : 45px;
+  height: 45px;
   align-items: center;
   justify-content: center;
   margin-right: 25px;
@@ -46,7 +48,7 @@ const ButtonProfilWrapper = styled.button`
   transition: all ease-in-out 180ms;
   color: #fff;
     &:hover {
-  border: 2px solid ${Color.red};
+      opacity : 0.7;
     }
     &:focus{
       outline: 0;
