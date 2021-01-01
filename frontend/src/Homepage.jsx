@@ -17,17 +17,17 @@ const BackgroundGrey = styled.div`
   background-color: ${Color.bgColor};
 `
 export function Homepage () {
-  const { isOpen, toggle, handleOpen } = useModal()
+  const { toggleModal, openModal } = useModal()
 
   useEffect(() => {
-    handleOpen()
+    toggleModal()
   }, [])
 
   return (
     <PageContainer>
       <Header />
       <BackgroundGrey />
-      <Modal open={isOpen} close={toggle} />
+      <Modal open={openModal} close={toggleModal} />
     </PageContainer>
   )
 }
