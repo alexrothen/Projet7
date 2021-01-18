@@ -2,10 +2,10 @@
 
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import ImgLogo from './assets/icon-left-font-monochrome-black.png'
-import { Margin } from './margin'
-import { Form, Input, Img, Span, SpanMessage, BlockInput } from './formStyle'
-import './index.css'
+import ImgLogo from '../assets/icon-left-font-monochrome-black.png'
+import { Margin } from '../utils/margin'
+import { Form, Input, Img, Span, SpanMessage, BlockInput } from '../utils/formStyle'
+import '../index.css'
 import { ButtonConnect } from './buttons'
 
 export const LoginForm = ({

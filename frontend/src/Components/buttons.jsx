@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Color } from './color'
-import ProfilImg from './assets/unnamed.jpg'
+import { Color } from '../utils/color'
+import ProfilImg from '../assets/unnamed.jpg'
 
 const ButtonConnectWrapper = styled.button`
   display: flex;

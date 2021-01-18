@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import styled from 'styled-components'
-import GroupomaniaLogoUrl from './assets/icon-left-font-monochrome-black.svg'
-import { useModal } from './useModal'
+import GroupomaniaLogoUrl from '../assets/icon-left-font-monochrome-black.svg'
+import { useModal } from '../utils/useModal'
 import { Modal } from './modal'
-import { ButtonProfil } from './buttons'
 import DropDownMenu from './DropDownMenu'
-
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -19,6 +17,7 @@ const HeaderContainer = styled.div`
 `
 const GroupomaniaLogo = styled.img`
   height: 60%;
+  padding-left:1%;
 `
 
 const Header = () => {
@@ -27,7 +26,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
-      <DropDownMenu />
+      <DropDownMenu toggleModal={toggleModal} />
       <Modal open={openModal} close={toggleModal} />
     </HeaderContainer>
   )

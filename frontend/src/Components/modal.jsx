@@ -4,7 +4,7 @@ import { Dialog } from '@material-ui/core'
 import { SignUpForm } from './signUp'
 import { LoginForm } from './login'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { signUpSchema, loginSchema } from './schemas'
+import { signUpSchema, loginSchema } from '../schemas/schemas'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useTheme } from '@material-ui/core/styles'
 
@@ -35,7 +35,7 @@ export const Modal = ({ open, close }) => {
       open={open}
       disableBackdropClick
       disableEscapeKeyDown
-      style={{ backdropFilter: 'blur(0.8em)' }}
+      style={{ backdropFilter: 'blur(0.5em)' }}
     >
       {login
         ? (

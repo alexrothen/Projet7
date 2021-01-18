@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { Modal } from './modal'
-import Header from './header'
-import { Color } from './color'
-import { useModal } from './useModal'
+import { Modal } from '../Components/modal'
+import Header from '../Components/header'
+import { Color } from '../utils/color'
+import { useModal } from '../utils/useModal'
 
 const PageContainer = styled.div`
 width : 100vw;
