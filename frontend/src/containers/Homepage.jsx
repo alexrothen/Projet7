@@ -1,21 +1,9 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
 import { Modal } from '../Components/modal'
 import Header from '../Components/header'
-import { Color } from '../utils/color'
 import { useModal } from '../utils/useModal'
+import { PageContainer, BackgroundGrey } from '../styles/pageContainerStyle'
 
-const PageContainer = styled.div`
-width : 100vw;
-height: 100vh;
-
-`
-
-const BackgroundGrey = styled.div`
-  width: 100vw;
-  height: 100%;
-  background-color: ${Color.bgColor};
-`
 export function Homepage () {
   const { toggleModal, openModal } = useModal()
 
