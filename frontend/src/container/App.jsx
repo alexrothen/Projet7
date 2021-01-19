@@ -4,7 +4,7 @@ import Header from '../Components/header'
 import { useModal } from '../utils/useModal'
 import { PageContainer, BackgroundGrey } from '../styles/pageContainerStyle'
 
-export function Homepage () {
+export function App () {
   const { toggleModal, openModal } = useModal()
 
   useEffect(() => {

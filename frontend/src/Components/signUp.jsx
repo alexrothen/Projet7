@@ -1,5 +1,3 @@
-// Imports
-
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import ImgLogo from '../assets/icon-left-font-monochrome-black.png'
