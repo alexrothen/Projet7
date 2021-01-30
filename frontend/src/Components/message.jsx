@@ -1,20 +1,14 @@
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Dialog } from '@material-ui/core'
-import { Margin } from '../styles/margin'
-import { Form, Input, Img, Span, SpanMessage, BlockInput } from '../styles/formStyle.js'
+import { Dialog, TextareaAutosize } from '@material-ui/core'
 import '../index.css'
 import { ButtonConnect } from './buttons'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { useTheme } from '@material-ui/core/styles'
 
-export const Message = () => {
-  return (
-    <TextArea />
-
-  )
-}
-
-const TextArea = () => {
+export const Message = ({ open, close }) => {
   const [count, setCount] = useState(280)
+  const theme = useTheme()
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   // if (count <= 0) {
   //   $('input').attr('disabled', true);
@@ -30,12 +24,14 @@ const TextArea = () => {
       style={{ backdropFilter: 'blur(0.5em)' }}
     >
       <p>Il vous reste {count} caractères</p>
-      <textarea
-          type='text'
-          rows={5}
-          onChange={e => setCount(count - e.target.value.length)}
-        />
-      <input type='submit' text='submit' />
+      <TextareaAutosize
+        rowsMin={5}
+        placeholder='Partagez quelque chose'
+        onChange={e => setCount(count - e.target.value.length)}
+      />
+      <ButtonConnect onClick={close} type='submit'>
+        ENVOYER
+      </ButtonConnect>
     </Dialog>
   )
 }

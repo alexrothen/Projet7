@@ -4,8 +4,9 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { ButtonProfil } from './buttons'
 import { Menu } from '@material-ui/core'
 import { Message } from './message'
+import { useMessage } from '../utils/useMessage'
 
-export default function DropDownMenu ({ toggleModal }) {
+export default function DropDownMenu ({ toggleConnect, toggleMessage }) {
   const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClick = (event) => {
@@ -28,9 +29,9 @@ export default function DropDownMenu ({ toggleModal }) {
       >
         <MenuItem onClick={handleClose}>Profil</MenuItem>
         <MenuItem onClick={toggleMessage}>Messages</MenuItem>
-        <MenuItem onClick={toggleModal}>Déconnexion</MenuItem>
-      </Menu>
+        <MenuItem onClick={toggleConnect}>Déconnexion</MenuItem>
 
+      </Menu>
     </>
   )
 }
