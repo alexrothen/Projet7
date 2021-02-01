@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 import { Color } from '../styles/color'
-import '../index.css'
-
 
 export const TextArea = styled.textarea`
   margin: auto;
@@ -10,8 +8,8 @@ export const TextArea = styled.textarea`
   flex-direction: column;
   justify-content: center;
   border: none;
-  width: 35vw;
-  height : 15vh;
+  min-width: 430px;
+  min-height: 120px;
   font-size: 1em;
   border: none;
   outline : none;
