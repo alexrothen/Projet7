@@ -6,7 +6,7 @@ const HorizontalMargin = styled.div`
   display: flex;
   width: ${({ margin }) => margin};
 `
-const VerticalMargin = styled.span`
+const VerticalMargin = styled.div`
   display: flex;
   height: ${({ margin }) => margin};
 `
