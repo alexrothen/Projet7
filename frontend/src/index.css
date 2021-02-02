@@ -16,3 +16,12 @@ margin: 0;
   padding: 0;
   margin: 0;
 }
+
+#IconButton{
+  color: rgba(252, 49, 9, 1);
+  transition: all 0.2s ease-in-out;
+}
+#IconButton:hover{
+  color: rgba(252, 49, 9, 0.7);
+  }
+

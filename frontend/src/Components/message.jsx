@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react'
 import { Dialog } from '@material-ui/core'
 import { ButtonConnect } from './buttons'
-import { TextArea } from '../styles/textAreaStyle'
+import { TextArea, Count, BlockBottom } from '../styles/messageStyle'
 import { Margin } from '../styles/margin'
-import { Count } from '../styles/count'
 import '../index.css'
+import { FileUploader } from './fileUploader'
 
 export const Message = ({ open, close }) => {
   const [count, setCount] = useState('')
@@ -24,10 +24,13 @@ export const Message = ({ open, close }) => {
       <Margin direction='vertical' margin='0.8em' />
       <Count>{count.length}/280</Count>
       <Margin direction='vertical' margin='1em' />
+      <BlockBottom>
+      <FileUploader />
       <ButtonConnect onClick={close} type='submit'>
         ENVOYER
       </ButtonConnect>
-      <Margin direction='vertical' margin='1.4em' />
+        <Margin direction='vertical' margin='1.4em' />
+        </BlockBottom>
     </Dialog>
   )
 }

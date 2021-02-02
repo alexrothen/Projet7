@@ -30,6 +30,27 @@ export const ButtonConnectWrapper = styled.button`
       outline: 0;
     }
 `
+export const ButtonSelectWrapper = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 2px solid ${Color.red};
+  background-color: #fff;
+  outline : ${Color.red};
+  width: 30px;
+  height : 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all ease-in-out 180ms;
+  color: #fff;
+  background-color: transparent;
+    &:hover {
+    }
+    &:focus{
+      outline: 0;
+    }
+`
 export const ButtonProfilWrapper = styled.button`
   display: flex;
   background: center / contain no-repeat url(${ProfilImg});
