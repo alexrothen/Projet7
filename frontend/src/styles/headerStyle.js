@@ -15,3 +15,9 @@ export const GroupomaniaLogo = styled.img`
   height: 60%;
   padding-left:1%;
 `
+export const BlockHeader = styled.div`
+  display : flex;
+  flex-direction : row;
+  justify-content: space-around;
+  align-items: center;
+`

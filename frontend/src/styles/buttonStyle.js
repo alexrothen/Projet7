@@ -31,7 +31,6 @@ export const ButtonConnectWrapper = styled.button`
       outline: 0;
     }
 `
-
 export const ButtonProfilWrapper = styled.button`
   background: url(${ProfilImg});
   background-position: 50% 50%;
@@ -39,6 +38,8 @@ export const ButtonProfilWrapper = styled.button`
   width : 55px;
   height: 55px;
   margin-right: 25px;
+    margin-left: 25px;
+
   border-radius: 50%;
   border: 1px solid ${Color.bgColorDark};
   background-color: ${Color.bgColorDark};  
@@ -52,7 +53,6 @@ export const ButtonProfilWrapper = styled.button`
       outline: 0;
     }
 `
-
 export const ButtonPostWrapper = styled.button`
   display: flex;
   align-items: center;
