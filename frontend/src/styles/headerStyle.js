@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Color } from './color'
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ export const HeaderContainer = styled.div`
   height: 50px;
   width: 100%;
   padding: 0;
-  background-color: #535353;
+  background-color: ${Color.bgHeader};
   justify-content: space-between;
 `
 export const GroupomaniaLogo = styled.img`

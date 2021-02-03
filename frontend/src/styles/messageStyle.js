@@ -19,6 +19,7 @@ export const TextArea = styled.textarea`
   border: none;
   outline : none;
   resize: none;
+  color: black;
   &:placeholder {
     color: ${Color.grey};
     font-size: 1em;

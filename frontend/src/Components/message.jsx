@@ -3,6 +3,7 @@ import { Dialog } from '@material-ui/core'
 import { ButtonClose, ButtonConnect, ButtonUploader } from './buttons'
 import { TextArea, Count, BlockBottom } from '../styles/messageStyle'
 import { Margin } from '../styles/margin'
+import { Color } from '../styles/color'
 import '../index.css'
 
 export const Message = ({ open, close }) => {

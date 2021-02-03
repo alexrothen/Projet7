@@ -9,7 +9,7 @@ export const Form = styled.form`
   height: 470px;
   width: 400px;
   border: none;
-  background-color: transparent;
+  background-color: ${Color.bgGrey};
 `
 export const BlockInput = styled.div`
   display: flex;
@@ -28,6 +28,8 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px dashed ${Color.grey};
   outline: none;
+  background-color: ${Color.bgGrey};
+
   &:focus {
     outline: 0;
   }
@@ -51,7 +53,7 @@ export const Span = styled.span`
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: ${Color.red};
+  color: ${Color.accent};
 `
 export const SpanMessage = styled.span`
   display: inline-flex;
@@ -61,6 +63,6 @@ export const SpanMessage = styled.span`
   align-items: center;
   cursor: pointer;
   &:hover {
-    text-decoration: underline 2px ${Color.red};
+    text-decoration: underline 2px ${Color.accent};
   }
 `
