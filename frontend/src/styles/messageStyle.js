@@ -27,5 +27,6 @@ export const TextArea = styled.textarea`
 export const BlockBottom = styled.div`
     display: flex;
     align-items: flex-start;
+    justify-content: space-around;
 
 `
