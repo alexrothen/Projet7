@@ -1,6 +1,6 @@
 import React from 'react'
 
-import GroupomaniaLogoUrl from '../assets/icon-left-font-monochrome-white.svg'
+import GroupomaniaLogoUrl from '../assets/icon-left-font-monochrome-grey.svg'
 import { useModal } from '../utils/useModal'
 import { Modal } from './modal'
 import { Message } from './message'

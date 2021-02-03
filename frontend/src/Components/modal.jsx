@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { signUpSchema, loginSchema } from '../schemas/schemas'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useTheme } from '@material-ui/core/styles'
+import '../index.css'
 
 export const Modal = ({ open, close }) => {
   const [login, toggleLogin] = useState(true)
@@ -31,11 +32,11 @@ export const Modal = ({ open, close }) => {
 
   return (
     <Dialog
-      fullScreen={fullScreen}
+      // fullScreen={fullScreen}
       open={open}
       disableBackdropClick
       disableEscapeKeyDown
-      style={{ backdropFilter: 'blur(0.5em)' }}
+      style={{ backdropFilter: 'blur(0.5em)'}}
     >
       {login
         ? (

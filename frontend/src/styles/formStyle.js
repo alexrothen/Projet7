@@ -3,6 +3,7 @@ import { Color } from './color'
 
 export const Form = styled.form`
   margin: auto;
+  color: ${Color.bgColorDark};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +14,7 @@ export const Form = styled.form`
 `
 export const BlockInput = styled.div`
   display: flex;
+  color: ${Color.bgColorDark};
   height: 190px;
   margin-top: 25%;
   flex-direction: column;
@@ -22,19 +24,21 @@ export const BlockInput = styled.div`
 export const Input = styled.input`
   margin: 0.5em auto;
   font-weight: bold;
+  color: ${Color.bgColorDark};
   font-size: 1em;
   display: flex;
   width: 250px;
   border: none;
-  border-bottom: 1px dashed ${Color.grey};
+  border-bottom: 1px dashed ${Color.bgHeader};
   outline: none;
   background-color: ${Color.bgGrey};
 
   &:focus {
     outline: 0;
+      background-color: ${Color.bgGrey};
+
   }
   ::placeholder {
-    color: ${Color.grey};
     font-weight: lighter;
     font-size: 1em;
   }
@@ -48,15 +52,18 @@ export const Img = styled.img`
 `
 export const Span = styled.span`
   margin: auto;
+    color: ${Color.red};
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: ${Color.accent};
 `
 export const SpanMessage = styled.span`
   display: inline-flex;
+    color: ${Color.bgColorDark};
+
   margin: 0 auto;
   width: fit-content;
   flex-direction: column;

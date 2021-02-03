@@ -4,7 +4,10 @@ import { Color } from './color'
 export const Count = styled.span`
     display: flex;
     justify-content : flex-end;
-    margin-right: 0.9em;
+    padding: 1.5em 0.9em 1.5em;
+    color: ${Color.bgColorDark};
+    background-color: ${Color.bgGrey};
+
 `
 export const TextArea = styled.textarea`
   margin: auto;
@@ -19,14 +22,16 @@ export const TextArea = styled.textarea`
   border: none;
   outline : none;
   resize: none;
-  color: black;
+  color: ${Color.bgColorDark};
+  background-color: ${Color.bgGrey};
   &:placeholder {
-    color: ${Color.grey};
+    color: ${Color.bgGrey};
     font-size: 1em;
   }
 `
 export const BlockBottom = styled.div`
     display: flex;
+    background-color: ${Color.bgGrey};
     align-items: flex-start;
     justify-content: space-around;
 

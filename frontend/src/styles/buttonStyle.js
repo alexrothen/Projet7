@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Color } from './color'
-import ProfilImg from '../assets/unnamed.jpg'
+import ProfilImg from '../assets/zemmour.jpg'
 
 export const ButtonConnectWrapper = styled.button`
   display: flex;
@@ -20,11 +20,12 @@ export const ButtonConnectWrapper = styled.button`
   font-weight: bold;
   cursor: pointer;
   transition: all ease-in-out 180ms;
-  color: #fff;
+  color: ${Color.bgGrey};
   background-color: ${Color.accent};
     &:hover {
       background-color: transparent;
-      color: ${Color.accent};
+      border: 2px solid ${Color.accent};
+        color: ${Color.accent};
     }
     &:focus{
       outline: 0;
@@ -40,10 +41,8 @@ export const ButtonProfilWrapper = styled.button`
   justify-content: center;
   margin-right: 25px;
   border-radius: 50%;
-  border: 2px solid ${Color.bgHeader};
-  color: ${Color.accent};
-  background-color: ${Color.bgColorDark};
-  outline : ${Color.accent};
+  border: 1px solid ${Color.bgColorDark};
+  background-color: ${Color.bgColorDark};  
   cursor: pointer;
   transition: all ease-in-out 180ms;
   color: #fff;
@@ -64,7 +63,6 @@ export const ButtonPostWrapper = styled.button`
   padding: 7px 16px;
   font-size: 1.02em;
   border: 2px solid ${Color.accent};
-  color: ${Color.accent};
   background-color: #fff;
   outline : ${Color.accent};
   width: 180px;
@@ -75,8 +73,8 @@ export const ButtonPostWrapper = styled.button`
   color: ${Color.bgGrey};
   background-color: ${Color.accent};
     &:hover {
-      background-color: ${Color.bgGrey};
-      color: ${Color.accent}
+     &:hover {
+      opacity : 0.7;
     }
     &:focus{
       outline: 0;

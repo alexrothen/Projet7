@@ -17,10 +17,11 @@ margin: 0;
 }
 
 #IconButton{
-  color: rgba(60, 110, 113, 1);
+  color:rgba(42, 157, 143,1);
+
   transition: all 0.2s ease-in-out;
 }
 #IconButton:hover{
-  color: rgba(60, 110, 113, 0.7);
+  color:rgba(42, 157, 143,0.7);
   }
 

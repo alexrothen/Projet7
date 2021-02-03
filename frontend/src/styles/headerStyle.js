@@ -10,6 +10,7 @@ export const HeaderContainer = styled.div`
   background-color: ${Color.bgHeader};
   justify-content: space-between;
 `
+
 export const GroupomaniaLogo = styled.img`
   height: 60%;
   padding-left:1%;
