@@ -3,15 +3,18 @@ import React from 'react'
 import GroupomaniaLogoUrl from '../assets/icon-left-font-monochrome-grey.svg'
 import { useModal } from '../utils/useModal'
 import { Modal } from './modal'
-import { Message } from './message'
+import { NewPost } from './newPost'
+import { Profil } from './profil'
 import { HeaderContainer, GroupomaniaLogo } from '../styles/headerStyle'
 import DropDownMenu from './DropDownMenu'
 import { useMessage } from '../utils/useMessage'
 import { ButtonPost } from './buttons'
+import { useProfil } from '../utils/useProfil'
 
 const Header = () => {
   const { openModal, toggleModal } = useModal()
   const { openMessage, toggleMessage } = useMessage()
+  const { openProfil, toggleProfil } = useProfil() 
 
   return (
     <HeaderContainer>
@@ -19,8 +22,9 @@ const Header = () => {
       <ButtonPost toggleMessage={toggleMessage}>
         Nouveau Message
       </ButtonPost>
-      <DropDownMenu toggleConnect={toggleModal} />
-      <Message open={openMessage} close={toggleMessage} />
+      <NewPost open={openMessage} close={toggleMessage} />
+      <DropDownMenu toggleConnect={toggleModal} toggleProfil={toggleProfil}/>
+      <Profil open={openProfil} close={toggleProfil}/>
       <Modal open={openModal} close={toggleModal} />
     </HeaderContainer>
   )

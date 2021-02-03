@@ -5,7 +5,7 @@ import { TextArea, Count, BlockBottom } from '../styles/messageStyle'
 import { Margin } from '../styles/margin'
 import '../index.css'
 
-export const Message = ({ open, close }) => {
+export const Profil = ({ open, close }) => {
   const [count, setCount] = useState('')
   const textLimiter = useCallback(text => {
     setCount(text.slice(0, 280))
@@ -19,12 +19,12 @@ export const Message = ({ open, close }) => {
       disableBackdropClick
       disableEscapeKeyDown
     >
-      <TextArea value={count} onChange={e => textLimiter(e.target.value)} placeholder='Partagez quelque chose' /> 
+      <TextArea value={count} onChange={e => textLimiter(e.target.value)} placeholder='Ecrivez votre bio' /> 
       <Count>{count.length}/280</Count>
       <BlockBottom>
         <ButtonUploader />
         <ButtonConnect onClick={close} type='submit'>
-          ENVOYER
+          ENREGISTRER
         </ButtonConnect>
         <ButtonClose onClick={close} />
         <Margin direction='vertical' margin='1.4em' />

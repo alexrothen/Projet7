@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Color } from './color'
-import ProfilImg from '../assets/zemmour.jpg'
+import ProfilImg from '../assets/unnamed.jpg'
 
 export const ButtonConnectWrapper = styled.button`
   display: flex;
@@ -33,12 +33,11 @@ export const ButtonConnectWrapper = styled.button`
 `
 
 export const ButtonProfilWrapper = styled.button`
-  display: flex;
-  background: center / contain no-repeat url(${ProfilImg});
+  background: url(${ProfilImg});
+  background-position: 50% 50%;
+  background-size: cover;
   width : 55px;
   height: 55px;
-  align-items: center;
-  justify-content: center;
   margin-right: 25px;
   border-radius: 50%;
   border: 1px solid ${Color.bgColorDark};
