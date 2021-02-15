@@ -44,7 +44,6 @@ export const LoginForm = ({
       <ButtonConnect disabled={disabled} onClick={onClickSubmit} type='submit'>
         CONNEXION
       </ButtonConnect>
-      <div className='fb-login-button' data-width='' data-size='medium' data-button-type='login_with' data-layout='rounded' data-auto-logout-link='false' data-use-continue-as='false' />
 
       <Margin direction='vertical' margin='2em' />
       <SpanMessage onClick={onClickToggle}>Pas encore inscrit ?</SpanMessage>

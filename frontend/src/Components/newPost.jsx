@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import { Dialog } from '@material-ui/core'
 import { ButtonClose, ButtonConnect, ButtonUploader } from './buttons'
 import { TextArea, Count, BlockBottom } from '../styles/messageStyle'
@@ -7,11 +7,7 @@ import '../index.css'
 
 export const NewPost = ({ open, close }) => {
   const [count, setCount] = useState('')
-  const textLimiter = useCallback(text => {
-    setCount(text.slice(0, 280))
-  },
-  [setCount]
-  )
+  const textLimiter = text => setCount(text.slice(0, 280))
 
   return (
     <Dialog
@@ -19,7 +15,7 @@ export const NewPost = ({ open, close }) => {
       disableBackdropClick
       disableEscapeKeyDown
     >
-      <TextArea value={count} onChange={e => textLimiter(e.target.value)} placeholder='Partagez quelque chose' /> 
+      <TextArea value={count} onChange={e => textLimiter(e.target.value)} placeholder='Partagez quelque chose' />
       <Count>{count.length}/280</Count>
       <BlockBottom>
         <ButtonUploader />

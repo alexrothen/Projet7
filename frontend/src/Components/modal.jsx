@@ -5,14 +5,14 @@ import { SignUpForm } from './signUp'
 import { LoginForm } from './login'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { signUpSchema, loginSchema } from '../schemas/schemas'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { useTheme } from '@material-ui/core/styles'
+// import useMediaQuery from '@material-ui/core/useMediaQuery'
+// import { useTheme } from '@material-ui/core/styles'
 import '../index.css'
 
 export const Modal = ({ open, close }) => {
   const [login, toggleLogin] = useState(true)
-  const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  // const theme = useTheme()
+  // const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   const signUpProps = {
     mode: 'onChange',
@@ -36,7 +36,7 @@ export const Modal = ({ open, close }) => {
       open={open}
       disableBackdropClick
       disableEscapeKeyDown
-      style={{ backdropFilter: 'blur(0.5em)'}}
+      style={{ backdropFilter: 'blur(0.5em)' }}
     >
       {login
         ? (
