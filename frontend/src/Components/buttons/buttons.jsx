@@ -1,10 +1,10 @@
 import React from 'react'
-import { ButtonConnectWrapper, ButtonProfilWrapper, ButtonPostWrapper } from '../styles/buttonStyle'
+import { ButtonConnectWrapper, ButtonProfilWrapper, ButtonPostWrapper } from './buttons_style'
 import CancelIcon from '@material-ui/icons/Cancel'
 import IconButton from '@material-ui/core/IconButton'
 import { makeStyles } from '@material-ui/core/styles'
 import PhotoCamera from '@material-ui/icons/PhotoCamera'
-import '../index.css'
+import '../../index.css'
 
 // ------------------- Bouton de connexion
 export const ButtonConnect = ({ children, ...props }) => {

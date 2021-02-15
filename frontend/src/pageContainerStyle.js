@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Color } from './color'
+import { Color } from './utils/styles/color'
 
 export const PageContainer = styled.div`
 width : 100vw;

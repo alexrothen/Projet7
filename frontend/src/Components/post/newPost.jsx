@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Dialog } from '@material-ui/core'
-import { ButtonClose, ButtonConnect, ButtonUploader } from './buttons'
-import { TextArea, Count, BlockBottom } from '../styles/messageStyle'
-import { Margin } from '../styles/margin'
-import '../index.css'
+import { ButtonClose, ButtonConnect, ButtonUploader } from '../buttons/buttons'
+import { TextArea, Count, BlockBottom } from './newpost_style'
+import { Margin } from '../../utils/styles/margin'
+import '../../index.css'
 
 export const NewPost = ({ open, close }) => {
   const [count, setCount] = useState('')

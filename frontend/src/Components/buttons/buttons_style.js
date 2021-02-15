@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Color } from './color'
-import ProfilImg from '../assets/unnamed.jpg'
+import { Color } from '../../utils/styles/color'
+import ProfilImg from '../../assets/unnamed.jpg'
 
 export const ButtonConnectWrapper = styled.button`
   display: flex;

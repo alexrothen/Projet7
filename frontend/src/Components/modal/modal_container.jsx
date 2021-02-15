@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Dialog } from '@material-ui/core'
-import { SignUpForm } from './signUp'
-import { LoginForm } from './login'
+import { SignUpForm } from '../forms/signUp_form'
+import { LoginForm } from '../forms/login_form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { signUpSchema, loginSchema } from '../schemas/schemas'
+import { signUpSchema, loginSchema } from '../../utils/schemas/schemas'
 // import useMediaQuery from '@material-ui/core/useMediaQuery'
 // import { useTheme } from '@material-ui/core/styles'
-import '../index.css'
+import '../../index.css'
 
 export const Modal = ({ open, close }) => {
   const [login, toggleLogin] = useState(true)

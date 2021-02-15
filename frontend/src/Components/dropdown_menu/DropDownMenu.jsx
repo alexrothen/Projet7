@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 import MenuItem from '@material-ui/core/MenuItem'
-import { ButtonProfil } from './buttons'
+import { ButtonProfil } from '../buttons/buttons'
 import { Menu } from '@material-ui/core'
-import '../index.css'
+import '../../index.css'
 
 export default function DropDownMenu ({ toggleConnect, toggleProfil }) {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -25,7 +25,7 @@ export default function DropDownMenu ({ toggleConnect, toggleProfil }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
         onClick={handleClose}
-        style={{ top: '35px'}}
+        style={{ top: '35px' }}
       >
         <MenuItem onClick={toggleProfil}>Profil</MenuItem>
         <MenuItem onClick={handleClose}>Messages</MenuItem>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import ImgLogo from '../assets/icon-left-font-monochrome-dark.svg'
-import { Margin } from '../styles/margin'
-import { Form, Input, Img, Span, SpanMessage, BlockInput } from '../styles/formStyle.js'
-import '../index.css'
-import { ButtonConnect } from './buttons'
+import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
+import { Margin } from '../../utils/styles/margin'
+import { Form, Input, Img, Span, SpanMessage, BlockInput } from './form_style.js'
+import '../../index.css'
+import { ButtonConnect } from '../buttons/buttons'
 
 export const SignUpForm = ({
   onClickToggle,

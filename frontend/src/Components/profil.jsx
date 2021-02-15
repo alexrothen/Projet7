@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Dialog } from '@material-ui/core'
-import { ButtonClose, ButtonConnect, ButtonUploader } from './buttons'
-import { TextArea, Count, BlockBottom } from '../styles/messageStyle'
-import { Margin } from '../styles/margin'
+import { ButtonClose, ButtonConnect, ButtonUploader } from './buttons/buttons'
+import { TextArea, Count, BlockBottom } from './post/newpost_style'
+import { Margin } from '../utils/styles/margin'
 import '../index.css'
 
 export const Profil = ({ open, close }) => {
