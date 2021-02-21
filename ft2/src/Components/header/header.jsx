@@ -4,7 +4,7 @@ import GroupomaniaLogoUrl from '../../assets/icon-left-font-monochrome-grey.svg'
 import { useModal } from '../hooks/useModal'
 import { Modal } from '../modal/modal_container'
 import { NewPost } from '../post/newPost'
-import { Profil } from '../profil'
+// import { Profil } from '../profil'
 import { HeaderContainer, GroupomaniaLogo, BlockHeader } from './header_style'
 import DropDownMenu from '../dropdown_menu/DropDownMenu'
 import { useMessage } from '../hooks/useMessage'
@@ -29,8 +29,8 @@ const Header = () => {
         />
         <DropDownMenu toggleConnect={toggleModal} toggleProfil={toggleProfil} />
       </BlockHeader>
-      <Profil open={openProfil} close={toggleProfil} />
-      <Modal isOpen={openModal} close={toggleModal} />
+      {/* <Profil open={openProfil} close={toggleProfil} /> */}
+      <Modal open={openModal} close={toggleModal} />
     </HeaderContainer>
   )
 }

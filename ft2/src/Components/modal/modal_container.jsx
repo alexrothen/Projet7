@@ -32,12 +32,8 @@ export const Modal = ({ open, close, onOpen }) => {
 
   return (
     <Dialog
-      // fullScreen={fullScreen}
       isOpen={open}
       onOpen={onOpen}
-      // disableBackdropClick
-      // disableEscapeKeyDown
-      //
       isCentered
       w='100%'
     >
@@ -45,30 +41,31 @@ export const Modal = ({ open, close, onOpen }) => {
       <ModalContent>
         {login
           ? (
-          <FormProvider {...loginMethods}>
-            <LoginForm
-              onSubmit={loginMethods.handleSubmit(onSubmit)}
-              onClickToggle={() => toggleLogin(false)}
-              onClickSubmit={close}
-              disabled={
+            <FormProvider {...loginMethods}>
+              <LoginForm
+                onSubmit={loginMethods.handleSubmit(onSubmit)}
+                onClickToggle={() => toggleLogin(false)}
+                onClickSubmit={close}
+                isLoading={loginMethods.formState.isSubmitting}
+                disabled={
                 loginMethods.formState.isSubmitting ||
                 !loginMethods.formState.isValid
               }
-            />
-          </FormProvider>
+              />
+            </FormProvider>
             )
           : (
-          <FormProvider {...signUpMethods}>
-            <SignUpForm
-              onSubmit={signUpMethods.handleSubmit(onSubmit)}
-              onClickToggle={() => toggleLogin(true)}
-              onClickSubmit={close}
-              disabled={
+            <FormProvider {...signUpMethods}>
+              <SignUpForm
+                onSubmit={signUpMethods.handleSubmit(onSubmit)}
+                onClickToggle={() => toggleLogin(true)}
+                onClickSubmit={close}
+                disabled={
                 signUpMethods.formState.isSubmitting ||
                 !signUpMethods.formState.isValid
               }
-            />
-          </FormProvider>
+              />
+            </FormProvider>
             )}
       </ModalContent>
     </Dialog>

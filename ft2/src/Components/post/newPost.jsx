@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, ModalContent, ModalOverlay } from '@chakra-ui/react'
+import { Modal, ModalContent, ModalFooter, ModalOverlay, ModalBody } from '@chakra-ui/react'
 import { ButtonClose, ButtonConnect, ButtonUploader } from '../buttons/buttons'
 import { TextArea, Count, BlockBottom } from './newpost_style'
 import { Margin } from '../../utils/styles/margin'
