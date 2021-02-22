@@ -47,7 +47,7 @@ export const Modal = ({ open, close, onOpen }) => {
                 isLoading={loginMethods.formState.isSubmitting}
                 disabled={
                 loginMethods.formState.isSubmitting ||
-                !loginMethods.formState.isValid
+                !loginMethods.formState.isValid 
               }
               />
             </FormProvider>
@@ -61,7 +61,8 @@ export const Modal = ({ open, close, onOpen }) => {
                 isLoading={signUpMethods.formState.isSubmitting}
                 disabled={
                 signUpMethods.formState.isSubmitting ||
-                !signUpMethods.formState.isValid
+                !signUpMethods.formState.isValid ||
+                !signUpMethods.formState.isDirty 
               }
               />
             </FormProvider>
