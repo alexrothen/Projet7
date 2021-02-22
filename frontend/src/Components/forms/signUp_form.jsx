@@ -1,71 +1,115 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
-import { Margin } from '../../utils/styles/margin'
-import { Form, Input, Img, Span, SpanMessage, BlockInput } from './form_style.js'
+import { Form, Img } from './form_style.js'
 import '../../index.css'
-import { ButtonConnect } from '../buttons/buttons'
+import {
+  Input,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Stack,
+  Text,
+  Link,
+  Button
+} from '@chakra-ui/react'
+import { Color } from '../../utils/styles/color'
 
 export const SignUpForm = ({
   onClickToggle,
   onClickSubmit,
   onSubmit,
-  disabled
+  disabled,
+  isLoading
 }) => {
   const { register, errors } = useFormContext()
 
   return (
     <Form onSubmit={onSubmit}>
-      <Img src={ImgLogo} />
-      <BlockInput>
-        <label htmlFor='email' />
-        <Input
-          htmlFor='email'
-          name='email'
-          type='email'
-          placeholder='E-MAIL'
-          aria-invalid={errors.email ? 'true' : 'false'}
-          ref={register()}
-        />
-        {errors.email && <Span>{errors.email.message}</Span>}
-        <label htmlFor='username' />
-        <Input
-          name='username'
-          type='text'
-          placeholder="NOM D'UTILISATEUR"
-          aria-invalid={errors.username ? 'true' : 'false'}
-          ref={register()}
-        />
-        {errors.username && <Span>{errors.username.message}</Span>}
-        <label htmlFor='password' />
-        <Input
-          htmlFor='password'
-          name='password'
-          type='password'
-          placeholder='MOT DE PASSE'
-          aria-invalid={errors.password ? 'true' : 'false'}
-          ref={register()}
-        />
-        {errors.password && <Span>{errors.password.message}</Span>}
-        <label htmlFor='passwordConfirmation' />
-        <Input
-          htmlFor='passwordConfirmation'
-          name='passwordConfirmation'
-          type='password'
-          placeholder='CONFIRMER LE MOT DE PASSE'
-          aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
-          ref={register()}
-        />
-        {errors.passwordConfirmation && (
-          <Span>{errors.passwordConfirmation.message}</Span>
-        )}
-      </BlockInput>
-      <Margin direction='vertical' margin='2.5em' />
-      <ButtonConnect disabled={disabled} onClick={onClickSubmit} type='submit'>
-        CONNEXION
-      </ButtonConnect>
-      <Margin direction='vertical' margin='2em' />
-      <SpanMessage onClick={onClickToggle}>Déjà inscrit ?</SpanMessage>
+      <Stack spacing='1em' mt='70px' h='210px' display='flex' justifyContent='center'>
+        <Img src={ImgLogo} />
+        <FormControl
+          display='flex'
+          flexDirection='column'
+          m='auto'
+          isInvalid={errors.email}
+          alignItems='center'
+          paddingTop='110px'
+          isRequired
+          id='email'
+        >
+          <FormLabel w='230px' htmlFor='email'>Adresse e-mail</FormLabel>
+          <Input
+            focusBorderColor={errors.email ? Color.red : Color.accent}
+            errorBorderColor={Color.red}
+            w='250px'
+            name='email'
+            type='email'
+            placeholder='e-mail'
+            aria-invalid={errors.email ? 'true' : 'false'}
+            ref={register()}
+          />
+          <FormErrorMessage>
+            {errors.email && <Text color={Color.red}>{errors.email.message}</Text>}
+          </FormErrorMessage>
+        </FormControl>
+        <FormControl
+          isInvalid={errors.password}
+          display='flex'
+          flexDirection='column'
+          m='auto'
+          alignItems='center'
+          isRequired
+          id='password'
+        >
+          <FormLabel w='230px' htmlFor='password'>Mot de passe</FormLabel>
+          <Input
+            errorBorderColor={Color.red}
+            focusBorderColor={errors.password ? Color.red : Color.accent}
+            w='250px'
+            name='password'
+            type='password'
+            placeholder='mot de passe'
+            aria-invalid={errors.password ? 'true' : 'false'}
+            ref={register()}
+          />
+          <FormErrorMessage>
+            {errors.password && <Text color={Color.red}>{errors.password.message}</Text>}
+          </FormErrorMessage>
+
+          <FormLabel my={3} w='230px' htmlFor='passwordConfirmation'>Confirmer le mot de passe</FormLabel>
+          <Input
+            errorBorderColor={Color.red}
+            focusBorderColor={errors.passwordConfirmation ? Color.red : Color.accent}
+            w='250px'
+            name='passwordConfirmation'
+            type='password'
+            placeholder='Confirmer le mot de passe'
+            aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
+            ref={register()}
+          />
+          <FormErrorMessage>
+            {errors.passwordConfirmation && <Text color={Color.red}>{errors.passwordConfirmation.message}</Text>}
+          </FormErrorMessage>
+        </FormControl>
+
+      </Stack>
+      <Stack mt='120px' h='80px' spacing={3}>
+
+        <Button
+          _hover={{ color: Color.bgColorDark, bg: Color.bgGrey }}
+          color='whiteAlpha.800' bg={Color.accent}
+          border='2px' borderColor={Color.accent} m='auto'
+          boxShadow='2xl' w='150px'
+          disabled={disabled}
+          onClick={onClickSubmit}
+          isLoading={isLoading}
+          type='submit'
+        >
+          S'INSCRIRE
+        </Button>
+        <Link display='flex' justifyContent='center' size='sm' _hover={{ color: Color.accent }} onClick={onClickToggle}>Déjà inscrit ?</Link>
+      </Stack>
     </Form>
   )
 }

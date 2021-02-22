@@ -4,15 +4,7 @@ export const signUpSchema = yup.object().shape({
   email: yup
     .string()
     .email("L'adresse e-mail doit être valide")
-    .required('Email requis'),
-  username: yup
-    .string()
-    .required("Nom d'utilisateur requis")
-    .min(6, 'Le mot de passe doit comporter au moins 6 caractères')
-    .matches(
-      /^[A-Za-zéèàê0-9(-.')]+$/,
-      "Le nom d'utilisateur ne doit pas contenir de caractères spéciaux"
-    ),
+    .required('Adresse e-mail requise'),
   password: yup
     .string()
     .required('Mot de passe requis')
@@ -23,10 +15,14 @@ export const signUpSchema = yup.object().shape({
       [yup.ref('password'), null],
       'Les mots de passe ne correspondent pas'
     )
+
 })
 
 export const loginSchema = yup.object().shape({
-  username: yup.string().required("Nom d'utilisateur requis"),
+  email: yup
+    .string()
+    .email("L'adresse e-mail doit être valide")
+    .required('Adresse e-mail requise'),
   password: yup
     .string()
     .required('Mot de passe requis')

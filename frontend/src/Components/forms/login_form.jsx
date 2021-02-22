@@ -1,52 +1,102 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
-import { Margin } from '../../utils/styles/margin'
-import { Form, Input, Img, Span, SpanMessage, BlockInput } from './form_style.js'
+import { Form, Img } from './form_style.js'
 import '../../index.css'
-import { ButtonConnect } from '../buttons/buttons'
+import {
+  Input,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Stack,
+  Text,
+  Link,
+  Button
+} from '@chakra-ui/react'
+import { Color } from '../../utils/styles/color'
 
 export const LoginForm = ({
   onClickSubmit,
   onClickToggle,
   onSubmit,
-  disabled
+  disabled,
+  isLoading
 }) => {
   const { register, errors } = useFormContext()
 
   return (
     <Form onSubmit={onSubmit}>
-      <Img src={ImgLogo} />
-      <BlockInput>
-        <label htmlFor='username' />
+      <Stack spacing='1.2em' mt='140px' h='210px' display='flex' justifyContent='center'>
+        <Img src={ImgLogo} />
+        <FormControl
+          display='flex'
+          id='email'
+          flexDirection='column'
+          m='auto'
+          isInvalid={errors.email}
+          alignItems='center'
+          isRequired
+        >
+          <FormLabel w='230px' htmlFor='email'>Adresse e-mail</FormLabel>
 
-        <Input
-          name='username'
-          type='text'
-          placeholder="NOM D'UTILISATEUR OU E-MAIL"
-          aria-invalid={errors.username ? 'true' : 'false'}
-          ref={register()}
-        />
-        {errors.username && <Span>{errors.username.message}</Span>}
-        <Margin direction='vertical' margin='1.2em' />
-        <label htmlFor='password' />
-        <Input
-          htmlFor='password'
-          name='password'
-          type='password'
-          placeholder='MOT DE PASSE'
-          aria-invalid={errors.password ? 'true' : 'false'}
-          ref={register()}
-        />
-        {errors.password && <Span>{errors.password.message}</Span>}
-      </BlockInput>
-      <Margin direction='vertical' margin='2.5em' />
-      <ButtonConnect disabled={disabled} onClick={onClickSubmit} type='submit'>
-        CONNEXION
-      </ButtonConnect>
+          <Input
+            focusBorderColor={errors.email ? Color.red : Color.accent}
+            errorBorderColor={Color.red}
+            w='250px'
+            name='email'
+            type='email'
+            placeholder='e-mail'
+            aria-invalid={errors.email ? 'true' : 'false'}
+            ref={register()}
+          />
+          <FormErrorMessage>
+            {errors.email && <Text color={Color.red}>{errors.email.message}</Text>}
+          </FormErrorMessage>
+        </FormControl>
+        <FormControl
+          isInvalid={errors.password}
+          display='flex'
+          flexDirection='column'
+          m='auto'
+          alignItems='center'
+          id='password'
+          isRequired
+        >
+          <FormLabel w='230px' htmlFor='password'>Mot de passe</FormLabel>
+          <Input
+            errorBorderColor={Color.red}
+            focusBorderColor={errors.password ? Color.red : Color.accent}
+            w='250px'
+            htmlFor='password'
+            name='password'
+            type='password'
+            placeholder='mot de passe'
+            aria-invalid={errors.password ? 'true' : 'false'}
+            ref={register()}
+          />
+          <FormErrorMessage>
+            {errors.password && <Text color={Color.red}>{errors.password.message}</Text>}
+          </FormErrorMessage>
+        </FormControl>
+      </Stack>
+      <Stack mt='50px' h='80px' spacing={3}>
 
-      <Margin direction='vertical' margin='2em' />
-      <SpanMessage onClick={onClickToggle}>Pas encore inscrit ?</SpanMessage>
+        <Button
+          _hover={{ color: Color.bgColorDark, bg: Color.bgGrey }}
+          color='whiteAlpha.800' bg={Color.accent}
+          border='2px' borderColor={Color.accent} m='auto'
+          boxShadow='2xl'
+          w='150px'
+          disabled={disabled}
+          onClick={onClickSubmit}
+          isLoading={isLoading}
+          type='submit'
+        >
+          CONNEXION
+        </Button>
+
+        <Link display='flex' justifyContent='center' size='sm' _hover={{ color: Color.accent }} onClick={onClickToggle}>Pas encore inscrit ?</Link>
+      </Stack>
     </Form>
   )
 }
