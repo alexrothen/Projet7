@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
 import { Form, Img } from './form_style.js'
@@ -23,10 +23,15 @@ export const SignUpForm = ({
   isLoading
 }) => {
   const { register, errors } = useFormContext()
+  const [matchingBorders, setMatchingBorders] = useState('inherit')
+  // faire e.target.value pour changer la couleur
+
+
+
 
   return (
     <Form onSubmit={onSubmit}>
-      <Stack spacing='1em' mt='70px' h='210px' display='flex' justifyContent='center'>
+      <Stack spacing='1em' mt='70px' h='210px' justifyContent='center'>
         <Img src={ImgLogo} />
         <FormControl
           display='flex'
@@ -67,6 +72,7 @@ export const SignUpForm = ({
             errorBorderColor={Color.red}
             focusBorderColor={errors.password ? Color.red : Color.accent}
             w='250px'
+            borderColor={matchingBorders}
             name='password'
             type='password'
             placeholder='mot de passe'
