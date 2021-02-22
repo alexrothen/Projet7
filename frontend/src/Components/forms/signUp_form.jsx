@@ -26,6 +26,8 @@ export const SignUpForm = ({
   const [matchingBorders, setMatchingBorders] = useState('inherit')
   // faire e.target.value pour changer la couleur
 
+  // TODO : masquer le mot de passe
+
 
 
 
