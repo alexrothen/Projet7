@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
 import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
   Input,
+  InputRightElement,
   FormControl,
   FormLabel,
   FormErrorMessage,
   Stack,
   Text,
   Link,
-  Button
+  Button,
+  InputGroup
 } from '@chakra-ui/react'
 import { Color } from '../../utils/styles/color'
 
@@ -24,9 +26,12 @@ export const LoginForm = ({
 }) => {
   const { register, errors } = useFormContext()
 
+  const [show, setShow] = useState(false)
+  const handleShow = () => setShow(!show)
+
   return (
     <Form onSubmit={onSubmit}>
-      <Stack spacing='1.2em' mt='140px' h='210px' display='flex' justifyContent='center'>
+      <Stack spacing='1em' mt='140px' h='210px' display='flex' justifyContent='center'>
         <Img src={ImgLogo} />
         <FormControl
           display='flex'
@@ -38,7 +43,6 @@ export const LoginForm = ({
           isRequired
         >
           <FormLabel w='230px' htmlFor='email'>Adresse e-mail</FormLabel>
-
           <Input
             focusBorderColor={errors.email ? Color.red : Color.accent}
             errorBorderColor={Color.red}
@@ -63,17 +67,24 @@ export const LoginForm = ({
           isRequired
         >
           <FormLabel w='230px' htmlFor='password'>Mot de passe</FormLabel>
-          <Input
-            errorBorderColor={Color.red}
-            focusBorderColor={errors.password ? Color.red : Color.accent}
-            w='250px'
-            htmlFor='password'
-            name='password'
-            type='password'
-            placeholder='mot de passe'
-            aria-invalid={errors.password ? 'true' : 'false'}
-            ref={register()}
-          />
+          <InputGroup w='250px'>
+            <Input
+              errorBorderColor={Color.red}
+              focusBorderColor={errors.password ? Color.red : Color.accent}
+              w='250px'
+              htmlFor='password'
+              name='password'
+              type={show ? 'text' : 'password'}
+              placeholder='mot de passe'
+              aria-invalid={errors.password ? 'true' : 'false'}
+              ref={register()}
+            />
+            <InputRightElement width='4.5rem'>
+              <Button h='1.4rem' size='xs' onClick={handleShow} variant='solid'>
+                {show ? 'Cacher' : 'Afficher'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
           <FormErrorMessage>
             {errors.password && <Text color={Color.red}>{errors.password.message}</Text>}
           </FormErrorMessage>

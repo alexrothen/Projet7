@@ -23,18 +23,6 @@ export const ButtonClose = () => {
   return <IconButton aria-label='close post' icon={<CloseIcon />} />
 }
 
-// // ------------------- Bouton d'upload
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     '& > *': {
-//       margin: theme.spacing(1)
-//     }
-//   },
-//   input: {
-//     display: 'none'
-//   }
-// }))
-
 export const ButtonUploader = () => {
   return <IconButton aria-label='upload' icon={<AddIcon />} />
 }

@@ -10,12 +10,15 @@ import DropDownMenu from '../dropdown_menu/DropDownMenu'
 import { useMessage } from '../hooks/useMessage'
 import { ButtonPost } from '../buttons/buttons'
 import { useProfil } from '../hooks/useProfil'
+import {useColorMode, Button} from '@chakra-ui/react'
+
 
 const Header = () => {
   const { openModal, toggleModal } = useModal()
   const { openMessage, toggleMessage } = useMessage()
   const { openProfil, toggleProfil } = useProfil()
 
+    const { colorMode, toggleColorMode } = useColorMode()
   return (
     <HeaderContainer>
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
@@ -31,6 +34,9 @@ const Header = () => {
       </BlockHeader>
       {/* <Profil open={openProfil} close={toggleProfil} /> */}
       <Modal open={openModal} close={toggleModal} />
+      <Button onClick={toggleColorMode}>
+        Toggle {colorMode === "light" ? "Dark" : "Light"}
+      </Button>
     </HeaderContainer>
   )
 }

@@ -12,8 +12,8 @@ export const signUpSchema = yup.object().shape({
   passwordConfirmation: yup
     .string()
     .oneOf(
-      [yup.ref('password'), null]
-      // 'Les mots de passe ne correspondent pas'
+      [yup.ref('password'), null],
+      'Les mots de passe ne correspondent pas'
     )
 
 })

@@ -33,7 +33,6 @@ export const Modal = ({ open, close, onOpen }) => {
       onOpen={onOpen}
       isCentered
       w='100%'
-
     >
       <ModalOverlay style={{ backdropFilter: 'blur(0.5em)' }} />
       <ModalContent>
@@ -47,7 +46,7 @@ export const Modal = ({ open, close, onOpen }) => {
                 isLoading={loginMethods.formState.isSubmitting}
                 disabled={
                 loginMethods.formState.isSubmitting ||
-                !loginMethods.formState.isValid 
+                !loginMethods.formState.isValid
               }
               />
             </FormProvider>
@@ -62,7 +61,7 @@ export const Modal = ({ open, close, onOpen }) => {
                 disabled={
                 signUpMethods.formState.isSubmitting ||
                 !signUpMethods.formState.isValid ||
-                !signUpMethods.formState.isDirty 
+                !signUpMethods.formState.isDirty
               }
               />
             </FormProvider>

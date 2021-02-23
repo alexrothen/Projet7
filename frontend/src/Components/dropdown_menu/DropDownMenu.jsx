@@ -1,6 +1,5 @@
 import React from 'react'
 import { Color } from '../../utils/styles/color'
-// import MenuItem from '@material-ui/core/MenuItem'
 import { ButtonProfil } from '../buttons/buttons'
 import {
   Menu,
@@ -14,12 +13,12 @@ import '../../index.css'
 export default function DropDownMenu ({ toggleConnect, toggleProfil }) {
   return (
     <>
-      <Menu isLazy>
+      <Menu>
         <MenuButton>
           <ButtonProfil />
         </MenuButton>
         <Portal>
-          <MenuList bg={Color.bgHeader}>
+          <MenuList boxShadow='2xl' border='none' >
             <MenuItem onClick={toggleProfil}>Profil</MenuItem>
             <MenuItem>Messages</MenuItem>
             <MenuItem onClick={toggleConnect}>Déconnexion</MenuItem>
