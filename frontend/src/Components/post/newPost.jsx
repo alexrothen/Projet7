@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Modal, ModalContent, ModalFooter, ModalOverlay, ModalBody, useColorModeValue, Textarea, Flex, Button, Stack, HStack, Center } from '@chakra-ui/react'
-import { ButtonClose, ButtonConnect, ButtonUploader } from '../buttons/buttons'
-import { TextArea, Count, BlockBottom } from './newpost_style'
-import { Margin } from '../../utils/styles/margin'
+import { Modal, ModalContent, ModalOverlay, useColorModeValue, Textarea, Flex, Button, HStack, Center } from '@chakra-ui/react'
+import { ButtonClose, ButtonUploader } from '../buttons/buttons'
 import '../../index.css'
 
 export const NewPost = ({ open, close }) => {
@@ -32,9 +30,9 @@ export const NewPost = ({ open, close }) => {
           <ButtonUploader />
           <Center>
 
-          <Button size='lg' onClick={close} type='submit'>
-            ENVOYER
-          </Button>
+            <Button size='lg' onClick={close} type='submit'>
+              ENVOYER
+            </Button>
           </Center>
           <ButtonClose onClick={close} />
         </HStack>

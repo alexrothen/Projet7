@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import LogoDark from '../../assets/icon-left-font-monochrome-dark.svg'
 import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
-import { Form, Img } from './form_style.js'
+// import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
+  Box,
+  Img,
   Input,
   InputRightElement,
   FormControl,
@@ -16,7 +18,8 @@ import {
   Button,
   InputGroup,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
+  Center
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Color } from '../../utils/styles/color'
@@ -35,9 +38,27 @@ export const LoginForm = ({
   const toggleShow = () => setShow(!show)
 
   return (
-    <Form onSubmit={onSubmit}>
-      <Stack spacing='1em' mt='140px' h='210px' display='flex' justifyContent='center'>
-        <Img src={LogoSwitcher} />
+    <Box
+      as='form'
+      display='flex'
+      flexDirection='column'
+      h='540px'
+      onSubmit={onSubmit}
+    >
+      <Center h='170px'>
+        <Img
+          w='280px'
+          src={LogoSwitcher}
+        />
+      </Center>
+      <Stack
+        spacing='1.2em'
+        display='flex'
+        h='200px'
+        flexDirection='column'
+        justifyContent='center'
+      >
+
         <FormControl
           display='flex'
           id='email'
@@ -47,11 +68,11 @@ export const LoginForm = ({
           alignItems='center'
           isRequired
         >
-          <FormLabel w='230px' htmlFor='email'>Adresse e-mail</FormLabel>
+          <FormLabel w='250px' htmlFor='email'>Adresse e-mail</FormLabel>
           <Input
             focusBorderColor={errors.email ? Color.red : Color.accent}
             errorBorderColor={Color.red}
-            w='250px'
+            w='270px'
             name='email'
             type='email'
             placeholder='e-mail'
@@ -71,12 +92,12 @@ export const LoginForm = ({
           id='password'
           isRequired
         >
-          <FormLabel w='230px' htmlFor='password'>Mot de passe</FormLabel>
-          <InputGroup w='250px'>
+          <FormLabel w='250px' htmlFor='password'>Mot de passe</FormLabel>
+          <InputGroup w='270px'>
             <Input
               errorBorderColor={Color.red}
               focusBorderColor={errors.password ? Color.red : Color.accent}
-              w='250px'
+              w='270px'
               htmlFor='password'
               name='password'
               type={show ? 'text' : 'password'}
@@ -93,7 +114,7 @@ export const LoginForm = ({
           </FormErrorMessage>
         </FormControl>
       </Stack>
-      <Stack mt='50px' h='80px' spacing={3}>
+      <Stack mt='60px' h='90px' spacing='0.5rem'>
 
         <Button
           bg={Color.accent}
@@ -111,6 +132,6 @@ export const LoginForm = ({
 
         <Link display='flex' justifyContent='center' size='sm' _hover={{ color: Color.accent }} onClick={onClickToggle}>Pas encore inscrit ?</Link>
       </Stack>
-    </Form>
+    </Box>
   )
 }

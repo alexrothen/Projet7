@@ -2,9 +2,12 @@ import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import LogoDark from '../../assets/icon-left-font-monochrome-dark.svg'
 import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
-import { Form, Img } from './form_style.js'
+// import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
+  Box,
+  Center,
+  Img,
   Input,
   FormControl,
   FormLabel,
@@ -28,24 +31,40 @@ export const SignUpForm = ({
   const LogoSwitcher = useColorModeValue(LogoDark, LogoLight)
 
   return (
-    <Form onSubmit={onSubmit}>
-      <Stack spacing='1em' mt='70px' h='210px' justifyContent='center'>
-        <Img src={LogoSwitcher} />
+    <Box
+      as='form'
+      display='flex'
+      flexDirection='column'
+      h='540px'
+      onSubmit={onSubmit}
+    >
+      <Center h='170px'>
+        <Img
+          w='280px'
+          src={LogoSwitcher}
+        />
+      </Center>
+      <Stack
+        spacing='1em'
+        display='flex'
+        h='200px'
+        flexDirection='column'
+        justifyContent='center'
+      >
         <FormControl
           display='flex'
           flexDirection='column'
           m='auto'
           isInvalid={errors.email}
           alignItems='center'
-          paddingTop='110px'
           isRequired
           id='email'
         >
-          <FormLabel w='230px' htmlFor='email'>Adresse e-mail</FormLabel>
+          <FormLabel w='250px' htmlFor='email'>Adresse e-mail</FormLabel>
           <Input
             focusBorderColor={errors.email ? Color.red : Color.accent}
             errorBorderColor={errors.email ? Color.red : Color.accent}
-            w='250px'
+            w='270px'
             name='email'
             type='email'
             placeholder='e-mail'
@@ -66,11 +85,11 @@ export const SignUpForm = ({
           isRequired
           id='password'
         >
-          <FormLabel w='230px' htmlFor='password'>Mot de passe</FormLabel>
+          <FormLabel w='250px' htmlFor='password'>Mot de passe</FormLabel>
           <Input
             errorBorderColor={errors.password ? Color.red : Color.accent}
             focusBorderColor={errors.password ? Color.red : Color.accent}
-            w='250px'
+            w='270px'
             name='password'
             placeholder='mot de passe'
             aria-invalid={errors.password ? 'true' : 'false'}
@@ -82,11 +101,11 @@ export const SignUpForm = ({
             {errors.password && <Text color={Color.red}>{errors.password.message}</Text>}
           </FormErrorMessage>
 
-          <FormLabel my={3} w='230px' htmlFor='passwordConfirmation'>Confirmer le mot de passe</FormLabel>
+          <FormLabel my={3} w='250px' htmlFor='passwordConfirmation'>Confirmer le mot de passe</FormLabel>
           <Input
             errorBorderColor={errors.password ? Color.red : Color.accent}
             focusBorderColor={errors.passwordConfirmation ? Color.red : Color.accent}
-            w='250px'
+            w='270px'
             name='passwordConfirmation'
             type='password'
             placeholder='Confirmer le mot de passe'
@@ -98,9 +117,8 @@ export const SignUpForm = ({
             {errors.passwordConfirmation && <Text color={Color.red}>{errors.passwordConfirmation.message}</Text>}
           </FormErrorMessage>
         </FormControl>
-
       </Stack>
-      <Stack mt='120px' h='80px' spacing={3}>
+      <Stack mt='60px' h='90px' spacing='0.5rem'>
 
         <Button
           variant='solid'
@@ -117,6 +135,6 @@ export const SignUpForm = ({
         </Button>
         <Link display='flex' justifyContent='center' size='sm' _hover={{ color: Color.accent }} onClick={onClickToggle}>Déjà inscrit ?</Link>
       </Stack>
-    </Form>
+    </Box>
   )
 }

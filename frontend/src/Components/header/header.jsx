@@ -5,16 +5,13 @@ import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
 import { useModal } from '../hooks/useModal'
 import { Modal } from '../modal/modal_container'
 import { NewPost } from '../post/newPost'
-import {Color} from '../../utils/styles/color'
+import { Color } from '../../utils/styles/color'
 // import { Profil } from '../profil'
-import { HeaderContainer, GroupomaniaLogo, BlockHeader } from './header_style'
 import DropDownMenu from '../dropdown_menu/DropDownMenu'
 import { useMessage } from '../hooks/useMessage'
-import { ButtonPost, ColorModeSwitcher } from '../buttons/buttons'
+import { ColorModeSwitcher } from '../buttons/buttons'
 import { useProfil } from '../hooks/useProfil'
-import { Button, Center, IconButton, useColorModeValue } from '@chakra-ui/react'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import theme from '../../utils/styles/theme'
+import { Flex, Button, Img, useColorModeValue } from '@chakra-ui/react'
 
 const Header = () => {
   const { openModal, toggleModal } = useModal()
@@ -22,11 +19,11 @@ const Header = () => {
   const { openProfil, toggleProfil } = useProfil()
 
   const LogoSwitcher = useColorModeValue(LogoDark, LogoLight)
-  
+
   return (
 
-    <HeaderContainer>
-      <GroupomaniaLogo src={LogoSwitcher} />
+    <Flex alignItems='center' h='70px' paddingTop='20px'>
+      <Img paddingLeft='4%' h='65%' src={LogoSwitcher} />
 
       <Button
         onClick={toggleMessage}
@@ -43,13 +40,13 @@ const Header = () => {
         open={openMessage}
         close={toggleMessage}
       />
-      <BlockHeader>
+      <Flex alignItems='center' paddingRight='3%'>
         <DropDownMenu toggleConnect={toggleModal} toggleProfil={toggleProfil} />
         <ColorModeSwitcher />
-      </BlockHeader>
+      </Flex>
       {/* <Profil open={openProfil} close={toggleProfil} /> */}
       <Modal open={openModal} close={toggleModal} />
-    </HeaderContainer>
+    </Flex>
   )
 }
 
