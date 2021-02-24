@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
+import LogoDark from '../../assets/icon-left-font-monochrome-dark.svg'
+import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
 import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
@@ -11,7 +12,8 @@ import {
   Stack,
   Text,
   Link,
-  Button
+  Button,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { Color } from '../../utils/styles/color'
 
@@ -23,11 +25,12 @@ export const SignUpForm = ({
   isLoading
 }) => {
   const { register, errors } = useFormContext()
+  const LogoSwitcher = useColorModeValue(LogoDark, LogoLight)
 
   return (
     <Form onSubmit={onSubmit}>
       <Stack spacing='1em' mt='70px' h='210px' justifyContent='center'>
-        <Img src={ImgLogo} />
+        <Img src={LogoSwitcher} />
         <FormControl
           display='flex'
           flexDirection='column'
@@ -100,10 +103,11 @@ export const SignUpForm = ({
       <Stack mt='120px' h='80px' spacing={3}>
 
         <Button
-          _hover={{ color: Color.bgColorDark, bg: Color.bgGrey }}
-          color='whiteAlpha.800' bg={Color.accent}
-          border='2px' borderColor={Color.accent} m='auto'
-          boxShadow='2xl' w='150px'
+          variant='solid'
+          bg={Color.accent}
+          m='auto'
+          boxShadow='2xl'
+          w='150px'
           disabled={disabled}
           onClick={onClickSubmit}
           isLoading={isLoading}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import ImgLogo from '../../assets/icon-left-font-monochrome-dark.svg'
+import LogoDark from '../../assets/icon-left-font-monochrome-dark.svg'
+import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
 import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
@@ -14,7 +15,8 @@ import {
   Link,
   Button,
   InputGroup,
-  IconButton
+  IconButton,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Color } from '../../utils/styles/color'
@@ -27,6 +29,7 @@ export const LoginForm = ({
   isLoading
 }) => {
   const { register, errors } = useFormContext()
+  const LogoSwitcher = useColorModeValue(LogoDark, LogoLight)
 
   const [show, setShow] = useState(false)
   const toggleShow = () => setShow(!show)
@@ -34,7 +37,7 @@ export const LoginForm = ({
   return (
     <Form onSubmit={onSubmit}>
       <Stack spacing='1em' mt='140px' h='210px' display='flex' justifyContent='center'>
-        <Img src={ImgLogo} />
+        <Img src={LogoSwitcher} />
         <FormControl
           display='flex'
           id='email'
@@ -82,7 +85,7 @@ export const LoginForm = ({
               ref={register()}
             />
             <InputRightElement width='2rem'>
-              <IconButton aria-label={ show ? 'Cacher le mot passe' : 'Afficher le mot de passe'} size='sm' onClick={toggleShow} variant='solid' icon={show ? <ViewOffIcon /> : <ViewIcon />} />
+              <IconButton aria-label={show ? 'Cacher le mot passe' : 'Afficher le mot de passe'} size='sm' onClick={toggleShow} variant='solid' icon={show ? <ViewOffIcon /> : <ViewIcon />} />
             </InputRightElement>
           </InputGroup>
           <FormErrorMessage>
@@ -93,15 +96,15 @@ export const LoginForm = ({
       <Stack mt='50px' h='80px' spacing={3}>
 
         <Button
-          _hover={{ color: Color.bgColorDark, bg: Color.bgGrey }}
-          color='whiteAlpha.800' bg={Color.accent}
-          border='2px' borderColor={Color.accent} m='auto'
+          bg={Color.accent}
+          m='auto'
           boxShadow='2xl'
           w='150px'
           disabled={disabled}
           onClick={onClickSubmit}
           isLoading={isLoading}
           type='submit'
+          variant='solid'
         >
           CONNEXION
         </Button>

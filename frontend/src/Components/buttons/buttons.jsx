@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonProfilWrapper } from './buttons_style'
-import { IconButton, useColorModeValue, useColorMode, Input, Button } from '@chakra-ui/react'
+import { IconButton, useColorModeValue, useColorMode, Input, Button, Box } from '@chakra-ui/react'
 import { CloseIcon, AddIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import '../../index.css'
 
@@ -16,10 +16,8 @@ export const ButtonClose = (props) => {
 
 export const ButtonUploader = (props) => {
   return (
-
-    // <IconButton aria-label='upload' type='file' icon={<AddIcon />} {...props}>
-      <input type='file' style={{display:'none'}} />
-    // </IconButton>
+    // <IconButton as='input' aria-label='upload' type='file' icon={<AddIcon />} {...props}/>
+    <input type='file' id='upload-button' style={{ display: 'none' }} />
   )
 }
 
