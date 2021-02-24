@@ -5,7 +5,6 @@ import { App } from './App'
 import { ColorModeScript } from '@chakra-ui/react'
 import theme from './utils/styles/theme'
 
-
 ReactDOM.render(
   <React.StrictMode>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
