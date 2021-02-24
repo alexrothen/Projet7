@@ -13,8 +13,10 @@ import {
   Text,
   Link,
   Button,
-  InputGroup
+  InputGroup,
+  IconButton
 } from '@chakra-ui/react'
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Color } from '../../utils/styles/color'
 
 export const LoginForm = ({
@@ -27,7 +29,7 @@ export const LoginForm = ({
   const { register, errors } = useFormContext()
 
   const [show, setShow] = useState(false)
-  const handleShow = () => setShow(!show)
+  const toggleShow = () => setShow(!show)
 
   return (
     <Form onSubmit={onSubmit}>
@@ -79,10 +81,8 @@ export const LoginForm = ({
               aria-invalid={errors.password ? 'true' : 'false'}
               ref={register()}
             />
-            <InputRightElement width='4.5rem'>
-              <Button h='1.4rem' size='xs' onClick={handleShow} variant='solid'>
-                {show ? 'Cacher' : 'Afficher'}
-              </Button>
+            <InputRightElement width='2rem'>
+              <IconButton aria-label={ show ? 'Cacher le mot passe' : 'Afficher le mot de passe'} size='sm' onClick={toggleShow} variant='solid' icon={show ? <ViewOffIcon /> : <ViewIcon />} />
             </InputRightElement>
           </InputGroup>
           <FormErrorMessage>

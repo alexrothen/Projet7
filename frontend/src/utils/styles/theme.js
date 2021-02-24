@@ -15,7 +15,15 @@ const theme = extendTheme(
               _focus:
                     { boxShadow: 'none' }
             }
-        }
+        },
+      Textarea:
+    {
+      baseStyle:
+      {
+        _focus:
+          { boxShadow: 'none' }
+      }
+    }
     },
     config
   })
