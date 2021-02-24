@@ -10,33 +10,37 @@ import DropDownMenu from '../dropdown_menu/DropDownMenu'
 import { useMessage } from '../hooks/useMessage'
 import { ButtonPost } from '../buttons/buttons'
 import { useProfil } from '../hooks/useProfil'
-import {useColorMode, Button} from '@chakra-ui/react'
-
+import { Button, IconButton, useColorMode } from '@chakra-ui/react'
+import { Color } from '../../utils/styles/color'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 const Header = () => {
   const { openModal, toggleModal } = useModal()
   const { openMessage, toggleMessage } = useMessage()
   const { openProfil, toggleProfil } = useProfil()
+  const { colorMode, toggleColorMode } = useColorMode()
 
-    const { colorMode, toggleColorMode } = useColorMode()
   return (
     <HeaderContainer>
       <GroupomaniaLogo src={GroupomaniaLogoUrl} />
+      <Button  onClick={toggleMessage} size='md'>
+        Nouveau Message
+      </Button>
+      <NewPost
+        h='40vh'
+        open={openMessage} close={toggleMessage}
+      />
       <BlockHeader>
-        <ButtonPost toggleMessage={toggleMessage}>
-          Nouveau Message
-        </ButtonPost>
-        <NewPost
-          h='40vh'
-          open={openMessage} close={toggleMessage}
-        />
         <DropDownMenu toggleConnect={toggleModal} toggleProfil={toggleProfil} />
+        <IconButton
+          onClick={toggleColorMode}
+          size='sm'
+          aria-label='light mode switch'
+          icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon /> }
+        />
       </BlockHeader>
       {/* <Profil open={openProfil} close={toggleProfil} /> */}
       <Modal open={openModal} close={toggleModal} />
-      <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
     </HeaderContainer>
   )
 }

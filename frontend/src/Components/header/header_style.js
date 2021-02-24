@@ -4,20 +4,22 @@ import { Color } from '../../utils/styles/color'
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 70px;
   width: 100%;
-  padding: 0;
-  background-color: ${Color.bgHeader};
+  padding-top: 0;
+  /* background-color: ${Color.bgColorDark}; */
   justify-content: space-between;
+  padding-top:10px;
 `
 
 export const GroupomaniaLogo = styled.img`
   height: 60%;
-  padding-left:1%;
+  padding-left:4%;
 `
 export const BlockHeader = styled.div`
   display : flex;
   flex-direction : row;
   justify-content: space-around;
   align-items: center;
+  padding-right: 5%;
 `

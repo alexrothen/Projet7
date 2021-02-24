@@ -14,7 +14,7 @@ export function App () {
   }, [])
 
   return (
-    <ChakraProvider theme={theme}>       
+    <ChakraProvider theme={theme}>
       <PageContainer>
         <Header />
         <BackgroundGrey />
