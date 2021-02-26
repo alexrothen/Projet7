@@ -1,24 +1,17 @@
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import LogoDark from '../../assets/icon-left-font-monochrome-dark.svg'
-import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
-// import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
-  Box,
-  Center,
-  Img,
   Input,
   FormControl,
   FormLabel,
   FormErrorMessage,
   Stack,
-  Text,
-  Link,
-  Button,
-  useColorModeValue
+  Text
 } from '@chakra-ui/react'
 import { Color } from '../../utils/styles/color'
+import { FormContainer } from './form_container'
+import { ButtonForm } from '../buttons/buttons'
 
 export const SignUpForm = ({
   onClickToggle,
@@ -28,22 +21,9 @@ export const SignUpForm = ({
   isLoading
 }) => {
   const { register, errors } = useFormContext()
-  const LogoSwitcher = useColorModeValue(LogoDark, LogoLight)
 
   return (
-    <Box
-      as='form'
-      display='flex'
-      flexDirection='column'
-      h='540px'
-      onSubmit={onSubmit}
-    >
-      <Center h='170px'>
-        <Img
-          w='280px'
-          src={LogoSwitcher}
-        />
-      </Center>
+    <FormContainer onSubmit={onSubmit}>
       <Stack
         spacing='1em'
         display='flex'
@@ -63,7 +43,7 @@ export const SignUpForm = ({
           <FormLabel w='250px' htmlFor='email'>Adresse e-mail</FormLabel>
           <Input
             focusBorderColor={errors.email ? Color.red : Color.accent}
-            errorBorderColor={errors.email ? Color.red : Color.accent}
+            errorBorderColor={Color.red}
             w='270px'
             name='email'
             type='email'
@@ -119,22 +99,16 @@ export const SignUpForm = ({
         </FormControl>
       </Stack>
       <Stack mt='60px' h='90px' spacing='0.5rem'>
-
-        <Button
-          variant='solid'
-          bg={Color.accent}
-          m='auto'
-          boxShadow='2xl'
-          w='150px'
+        <ButtonForm
           disabled={disabled}
           onClick={onClickSubmit}
           isLoading={isLoading}
-          type='submit'
+          onClickToggle={onClickToggle}
+          switchText='Déjà inscrit ?'
         >
           S'INSCRIRE
-        </Button>
-        <Link display='flex' justifyContent='center' size='sm' _hover={{ color: Color.accent }} onClick={onClickToggle}>Déjà inscrit ?</Link>
+        </ButtonForm>
       </Stack>
-    </Box>
+    </FormContainer>
   )
 }

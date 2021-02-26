@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import LogoDark from '../../assets/icon-left-font-monochrome-dark.svg'
-import LogoLight from '../../assets/icon-left-font-monochrome-grey.svg'
-// import { Form, Img } from './form_style.js'
 import '../../index.css'
 import {
-  Box,
-  Img,
   Input,
   InputRightElement,
   FormControl,
@@ -14,15 +9,13 @@ import {
   FormErrorMessage,
   Stack,
   Text,
-  Link,
-  Button,
   InputGroup,
-  IconButton,
-  useColorModeValue,
-  Center
+  IconButton
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Color } from '../../utils/styles/color'
+import { FormContainer } from './form_container'
+import { ButtonForm } from '../buttons/buttons'
 
 export const LoginForm = ({
   onClickSubmit,
@@ -32,25 +25,12 @@ export const LoginForm = ({
   isLoading
 }) => {
   const { register, errors } = useFormContext()
-  const LogoSwitcher = useColorModeValue(LogoDark, LogoLight)
 
   const [show, setShow] = useState(false)
   const toggleShow = () => setShow(!show)
 
   return (
-    <Box
-      as='form'
-      display='flex'
-      flexDirection='column'
-      h='540px'
-      onSubmit={onSubmit}
-    >
-      <Center h='170px'>
-        <Img
-          w='280px'
-          src={LogoSwitcher}
-        />
-      </Center>
+    <FormContainer onSubmit={onSubmit}>
       <Stack
         spacing='1.2em'
         display='flex'
@@ -116,22 +96,17 @@ export const LoginForm = ({
       </Stack>
       <Stack mt='60px' h='90px' spacing='0.5rem'>
 
-        <Button
-          bg={Color.accent}
-          m='auto'
-          boxShadow='2xl'
-          w='150px'
+        <ButtonForm
           disabled={disabled}
           onClick={onClickSubmit}
           isLoading={isLoading}
-          type='submit'
-          variant='solid'
+          onClickToggle={onClickToggle}
+          switchText='Pas encore inscrit ?'
         >
           CONNEXION
-        </Button>
+        </ButtonForm>
 
-        <Link display='flex' justifyContent='center' size='sm' _hover={{ color: Color.accent }} onClick={onClickToggle}>Pas encore inscrit ?</Link>
       </Stack>
-    </Box>
+    </FormContainer>
   )
 }

@@ -19,7 +19,8 @@
     "react-scripts": "4.0.2",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "standard": "*"
   },
   "scripts": {
     "start": "react-scripts start",
