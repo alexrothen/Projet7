@@ -9,7 +9,6 @@ import theme from './utils/styles/theme'
 export function App () {
   const { toggleModal, openModal } = useModal()
 
-
   useEffect(() => {
     toggleModal()
   }, [])
