@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { Color } from '../../utils/styles/color'
-import { FormContainer } from './form_container'
+import { FormContainer } from './container/container/form_container'
 import { ButtonForm } from '../buttons/buttons'
 
 export const LoginForm = ({

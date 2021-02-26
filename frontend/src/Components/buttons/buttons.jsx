@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonProfilWrapper } from './buttons_style'
-import { IconButton, useColorModeValue, useColorMode, Input, Button, Box, Link } from '@chakra-ui/react'
+import { IconButton, useColorModeValue, useColorMode, Input, Button, Link } from '@chakra-ui/react'
 import { CloseIcon, AddIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { Color } from '../../utils/styles/color'
 import '../../index.css'
